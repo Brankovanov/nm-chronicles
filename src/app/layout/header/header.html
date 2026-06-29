@@ -1,0 +1,17 @@
+<header>
+    <nav>
+        <a routerLink="[]" fragment="" class="nav-logo">NM Chronicles</a>
+        <ul class="nav-links">
+            @if (isHome()) {
+                <li><a routerLink="[]" fragment="about">About</a></li>
+                <li><a routerLink="[]" fragment="listen">Listen</a></li>
+                <li><a routerLink="[]" fragment="characters">Characters</a></li>
+                <li><a routerLink="[]" fragment="map">The City</a></li>
+                <li><a routerLink="[]" fragment="author">Author</a></li>
+                <li><a routerLink="[]" fragment="connect">Connect</a></li>
+            } @else {
+                <a routerLink="[]" fragment="" class="nav-back">← Back to Home</a>
+            }
+        </ul>
+    </nav>
+</header>

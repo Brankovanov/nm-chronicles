@@ -1,0 +1,38 @@
+.author-section {
+  background: var(--bg-section);
+}
+
+.author-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.author-grid .about-img-wrap {
+  order: -1;
+}
+
+.author-text p {
+  color: var(--text);
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
+}
+
+.author-text p em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .author-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .author-grid .about-img-wrap {
+    order: 0;
+  }
+}

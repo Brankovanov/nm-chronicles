@@ -1,1 +1,172 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-dim: #7A6030;
+  --crimson: #8B1A1A;
+  --crimson-bright: #C0392B;
+  --bg-deep: #080808;
+  --bg-card: #0E0C0A;
+  --bg-section: #0B0908;
+  --text: #D4C9B0;
+  --text-dim: #7A7060;
+  --border: #2A2218;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: local('Cinzel'),
+       url('./assets/fonts/Cinzel,Crimson_Text/Cinzel/Cinzel-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Local Crimson Text faces */
+@font-face {
+  font-family: 'Crimson Text';
+  src: local('Crimson Text'), local('CrimsonText-Regular'),
+       url('./assets/fonts/Cinzel,Crimson_Text/Crimson_Text/CrimsonText-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  src: local('Crimson Text Italic'), local('CrimsonText-Italic'),
+       url('./assets/fonts/Cinzel,Crimson_Text/Crimson_Text/CrimsonText-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  src: local('Crimson Text SemiBold'), local('CrimsonText-SemiBold'),
+       url('./assets/fonts/Cinzel,Crimson_Text/Crimson_Text/CrimsonText-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  src: local('Crimson Text SemiBold Italic'), local('CrimsonText-SemiBoldItalic'),
+       url('./assets/fonts/Cinzel,Crimson_Text/Crimson_Text/CrimsonText-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  src: local('Crimson Text Bold'), local('CrimsonText-Bold'),
+       url('./assets/fonts/Cinzel,Crimson_Text/Crimson_Text/CrimsonText-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  src: local('Crimson Text Bold Italic'), local('CrimsonText-BoldItalic'),
+       url('./assets/fonts/Cinzel,Crimson_Text/Crimson_Text/CrimsonText-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-deep);
+  color: var(--text);
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.35;
+}
+
+section {
+  padding: 6rem 4rem;
+}
+
+#about {
+  background: var(--bg-section);
+}
+
+@media (max-width: 900px) {
+  section {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.section-label {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 6px;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  color: var(--gold-light);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.section-lead {
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold-dim);
+  margin: 1.5rem 0;
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.ornament-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.ornament-diamond {
+  width: 6px;
+  height: 6px;
+  background: var(--gold-dim);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}

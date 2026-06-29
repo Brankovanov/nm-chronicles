@@ -1,0 +1,82 @@
+.connect-section {
+  background: linear-gradient(to bottom, var(--bg-deep), #0D0804);
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.connect-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.5rem 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.3s, transform 0.2s, background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.link-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gold-dim);
+  transition: background 0.3s;
+}
+
+.link-card:hover {
+  border-color: var(--gold-dim);
+  transform: translateY(-2px);
+  background: #120E0A;
+}
+
+.link-card:hover::before {
+  background: var(--gold);
+}
+
+.link-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.link-label {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  transition: color 0.3s;
+}
+
+.link-card:hover .link-label {
+  color: var(--gold);
+}
+
+.link-desc {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+@media (max-width: 900px) {
+  .links-grid {
+    grid-template-columns: 1fr;
+  }
+}

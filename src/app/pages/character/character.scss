@@ -1,0 +1,242 @@
+/* Character sheet page — reuses global tokens from general.css */
+
+.sheet-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  height: 64px;
+  background: linear-gradient(to bottom, rgba(8,8,8,0.97) 0%, rgba(8,8,8,0) 100%);
+  backdrop-filter: blur(4px);
+}
+.sheet-nav a { text-decoration: none; }
+.sheet-nav .nav-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.sheet-nav .nav-back {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.sheet-nav .nav-back:hover { color: var(--gold-light); }
+
+/* Hero */
+.sheet-hero {
+  position: relative;
+  padding: 9rem 4rem 4rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-section);
+  overflow: hidden;
+}
+.sheet-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+.sheet-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 6px;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.sheet-name {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1.05;
+  text-shadow: 0 4px 40px rgba(0,0,0,0.9);
+}
+.sheet-tagline {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  color: var(--text-dim);
+  margin-top: 1rem;
+  max-width: 720px;
+}
+.sheet-quote {
+  margin-top: 1.75rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--crimson);
+  font-style: italic;
+  color: var(--text);
+  max-width: 640px;
+}
+
+/* Layout */
+.sheet-body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 4rem 6rem;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Profile block */
+.profile-block {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  padding: 2rem;
+  position: sticky;
+  top: 88px;
+}
+.profile-block h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.profile-row { margin-bottom: 1.1rem; }
+.profile-row:last-child { margin-bottom: 0; }
+.profile-key {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.25rem;
+}
+.profile-val { color: var(--text); font-size: 1rem; line-height: 1.5; }
+.profile-val ul { list-style: none; }
+.profile-val li { position: relative; padding-left: 1rem; }
+.profile-val li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.6em;
+  width: 4px; height: 4px;
+  background: var(--gold-dim);
+  transform: rotate(45deg);
+}
+
+/* Main content */
+.sheet-main .section-label { margin-top: 0; }
+.sheet-bio p {
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 1.2rem;
+}
+.sheet-bio em { color: var(--gold); font-style: italic; }
+
+/* Gallery slots */
+.sheet-gallery {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+/* Top row: portrait + insignia (and any future small images), left-aligned */
+.gallery-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: flex-start;
+}
+.gallery-row .gallery-slot { width: 220px; flex: 0 0 auto; }
+/* Wide slot (turnaround) spans full width below */
+.gallery-slot--wide { width: 100%; }
+.gallery-slot--wide .gallery-frame { aspect-ratio: 16 / 9; }
+.gallery-slot {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.gallery-frame {
+  aspect-ratio: 3 / 4;
+  background:
+    repeating-linear-gradient(45deg, rgba(122,96,48,0.05) 0 10px, transparent 10px 20px),
+    var(--bg-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-in;
+  position: relative;
+}
+.gallery-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery-frame .frame-empty {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  opacity: 0.5;
+}
+.gallery-label {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-align: center;
+  padding: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Full sheet link */
+.sheet-fulllink {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.sheet-fulllink a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-dim);
+  padding: 12px 26px;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+}
+.sheet-fulllink a:hover { background: var(--gold); color: var(--bg-deep); }
+
+.sheet-crosslinks {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 4rem 5rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.sheet-crosslinks a {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.sheet-crosslinks a:hover { color: var(--gold-light); }
+
+@media (max-width: 900px) {
+  .sheet-hero { padding: 7rem 1.5rem 3rem; }
+  .sheet-body { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem 4rem; }
+  .profile-block { position: static; }
+  .sheet-gallery { gap: 1rem; }
+  .gallery-row { gap: 1rem; }
+  .gallery-row .gallery-slot { width: 100%; }
+  .sheet-nav { padding: 0 1.5rem; }
+  .sheet-crosslinks { padding: 0 1.5rem 4rem; }
+}

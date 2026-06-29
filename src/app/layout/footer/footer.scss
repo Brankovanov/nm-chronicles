@@ -1,0 +1,45 @@
+footer {
+  border-top: 1px solid var(--border);
+  padding: 3rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #050505;
+}
+
+.footer-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  color: var(--gold-dim);
+  letter-spacing: 3px;
+}
+
+.footer-sub {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+.footer-credit {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  text-align: right;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: #3A3028;
+}
+
+@media (max-width: 900px) {
+  footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .footer-credit {
+    text-align: center;
+  }
+}

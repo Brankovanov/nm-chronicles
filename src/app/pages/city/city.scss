@@ -1,0 +1,224 @@
+/* City sheet page — reuses global tokens; mirrors character-sheet structure */
+
+.city-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  height: 64px;
+  background: linear-gradient(to bottom, rgba(8,8,8,0.97) 0%, rgba(8,8,8,0) 100%);
+  backdrop-filter: blur(4px);
+}
+.city-nav a { text-decoration: none; }
+.city-nav .nav-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.city-nav .nav-back {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.city-nav .nav-back:hover { color: var(--gold-light); }
+
+/* Hero */
+.city-hero {
+  position: relative;
+  padding: 9rem 4rem 4rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-section);
+  overflow: hidden;
+}
+.city-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+.city-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 6px;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.city-name {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1.05;
+  text-shadow: 0 4px 40px rgba(0,0,0,0.9);
+}
+.city-tagline {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  color: var(--text-dim);
+  margin-top: 1rem;
+  max-width: 760px;
+}
+
+/* Body */
+.city-body { max-width: 1100px; margin: 0 auto; padding: 4rem 4rem 2rem; }
+.city-general p {
+  font-size: 1.1rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  max-width: 820px;
+}
+.city-general em { color: var(--gold); font-style: italic; }
+
+/* Districts */
+.districts {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 4rem 4rem;
+}
+.districts-label {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 6px;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.districts-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: var(--gold-light);
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+}
+.district-grid {
+  display: flex;
+  flex-direction: column;
+}
+.district-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  padding: 4rem 0;
+  border-top: 1px solid var(--border);
+  scroll-margin-top: 88px;
+}
+.district-card:first-child { border-top: none; }
+/* Alternate: even rows put the image on the right */
+.district-card:nth-child(even) .district-frame { order: 2; }
+.district-card:nth-child(even) .district-info { order: 1; }
+
+/* Scroll-reveal (matches homepage) */
+.district-card {
+  // opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.district-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.district-frame {
+  aspect-ratio: 4 / 3;
+  position: relative;
+  background:
+    repeating-linear-gradient(45deg, rgba(122,96,48,0.05) 0 10px, transparent 10px 20px),
+    var(--bg-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+.district-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.district-frame .frame-empty {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  opacity: 0.5;
+}
+.district-info { padding: 0; }
+.district-name {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  color: var(--gold-light);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.district-desc {
+  font-size: 1.05rem;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* Full map link */
+.city-fulllink {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 4rem 2rem;
+}
+.city-fulllink a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-dim);
+  padding: 12px 26px;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+}
+.city-fulllink a:hover { background: var(--gold); color: var(--bg-deep); }
+
+.city-crosslinks {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 4rem 5rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.city-crosslinks a {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.city-crosslinks a:hover { color: var(--gold-light); }
+
+@media (max-width: 900px) {
+  .city-hero { padding: 7rem 1.5rem 3rem; }
+  .city-body { padding: 3rem 1.5rem 1.5rem; }
+  .districts { padding: 1.5rem 1.5rem 3rem; }
+  .district-grid { grid-template-columns: none; }
+  .district-card {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2.5rem 0;
+  }
+  /* On mobile, always image-first regardless of alternation */
+  .district-card:nth-child(even) .district-frame { order: 0; }
+  .district-card:nth-child(even) .district-info { order: 0; }
+  .city-fulllink, .city-crosslinks { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .city-nav { padding: 0 1.5rem; }
+}
+@media (max-width: 600px) {
+  .district-frame { aspect-ratio: 4 / 3; }
+}
