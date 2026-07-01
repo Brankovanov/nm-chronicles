@@ -6,13 +6,26 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
-  align-items: center;
+  align-items: top;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.author-grid .about-img-wrap {
-  order: -1;
+
+img {
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  object-fit: cover;
+  object-position: center;
+
+  &.desktop-image {
+    display: block;
+  }
+
+  &.mobile-image {
+    display: none;
+  }
 }
 
 .author-text p {
@@ -32,7 +45,14 @@
     gap: 2rem;
   }
 
-  .author-grid .about-img-wrap {
-    order: 0;
+  img {
+    &.desktop-image {
+      display: none;
+    }
+
+    &.mobile-image {
+      display: block;
+      margin: 1.5rem 0;
+    }
   }
 }

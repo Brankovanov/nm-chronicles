@@ -1,0 +1,61 @@
+[
+  {
+    "id": "q-entity-presumption",
+    "text": "You presume the One True is asking.",
+    "speaker": "The Entity",
+    "context": "To Dion, from the prequel audiobook",
+    "characterSlug": "the-unknown-emissary"
+  },
+  {
+    "id": "q-entity-on-newport-maeve",
+    "text": "Because it is the pinnacle, your crowning monument to progress. The most technologically advanced city of your age. Where ambition walks hand in hand with hubris. And progress breeds corruption. Corruption blossoms into indulgence. And indulgence sharpens hunger into obsession, polishes desire until it gleams. The hellspawn, Dion… they do not feed on blood or flesh. They feed on that refinement, on cravings shaped by civilization itself.",
+    "speaker": "The Entity",
+    "context": "On Newport Maeve, from the prequel audiobook",
+    "characterSlug": "the-unknown-emissary"
+  },
+  {
+    "id": "q-dion-to-protector",
+    "text": "Listen, Protector. It will not happen. I have a strict protocol for who can be what in my society. If you find otherwise, you can seek me out again — and then we can have any kind of conversation you wish.",
+    "speaker": "Dion",
+    "context": "To the Protector, from the prequel audiobook",
+    "characterSlug": "miroslav-dion"
+  },
+  {
+    "id": "q-dion-tagline",
+    "text": "Outlived kings. Shaped empires. Still standing.",
+    "speaker": "Miroslav Dion",
+    "characterSlug": "miroslav-dion"
+  },
+  {
+    "id": "q-protector-tagline",
+    "text": "I do not protect out of mercy. I protect because I must.",
+    "speaker": "The Protector",
+    "characterSlug": "the-protector"
+  },
+  {
+    "id": "q-emissary-tagline",
+    "text": "He steps through the ages as if through a quiet hall.",
+    "speaker": "Narrator",
+    "context": "Of the Unknown Emissary",
+    "characterSlug": "the-unknown-emissary"
+  },
+  {
+    "id": "q-george-tagline",
+    "text": "Thirst makes beasts. Duty makes monsters.",
+    "speaker": "George L'Aris",
+    "characterSlug": "george-laris"
+  },
+  {
+    "id": "q-aland-tagline",
+    "text": "The city is built on hunger. I just give it a reason to open its hand.",
+    "speaker": "Aland",
+    "characterSlug": "aland"
+  },
+  {
+    "id": "q-bride-tagline",
+    "text": "She had escaped one fate — only to collide with another.",
+    "speaker": "Narrator",
+    "context": "Of the Unnamed Bride",
+    "characterSlug": "unnamed-bride"
+  }
+]

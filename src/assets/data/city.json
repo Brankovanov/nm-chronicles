@@ -1,0 +1,99 @@
+{
+  "name": "Newport Maeve",
+  "subtitle": "Where the Zarina River meets the Moon Sea",
+  "overview": "Newport Maeve is a vast industrial metropolis built where the Zarina River meets the Moon Sea, with trade, manufacturing, military logistics, and civic power moving through it at every hour. Wide boulevards carry steam carriage buses along the borders between districts, while elevated trains cut above the streets and dirigibles drift higher still, advertising to the city below or carrying people and supplies between nearby settlements. The river and sea keep Newport Maeve tied to water transport, while rail lines stretch through ravines and open plains to move heavy machines, raw materials, and finished parts across the Confederacy.",
+  "geography": {
+    "river": "Zarina River",
+    "sea": "Moon Sea"
+  },
+  "mapImage": {
+    "src": "https://newportmaeve.com/assets/images/map.webp",
+    "alt": "Illustrated map of Newport Maeve, where the Zarina River meets the Moon Sea"
+  },
+  "districts": [
+    {
+      "slug": "market-district",
+      "name": "Market District",
+      "summary": "The commercial heart of Newport Maeve, where every deal is struck beneath the steam-heavy sky.",
+      "description": "The Market District is the commercial heart of Newport Maeve, where everything from cheap trinkets to major supply contracts changes hands beneath the steam-heavy sky. By day, vendors, brokers, clerks, and factory agents crowd the streets while the towers of the city's largest corporations loom above them. By night, the stalls close, the shadows deepen, and the highest floors remain lit as powerful people bargain over the future of the city.",
+      "image": {
+        "src": "https://newportmaeve.com/assets/images/city/city-market-district.webp",
+        "alt": "Market District, a district of Newport Maeve"
+      },
+      "tags": ["commercial", "dangerous"],
+      "displayOrder": 1
+    },
+    {
+      "slug": "industrial-district",
+      "name": "Industrial District",
+      "summary": "The engine room of Newport Maeve — loud, smoke-stained, and essential to everything the city builds.",
+      "description": "The Industrial District is where most of Newport Maeve earns its living, feeding the city's factories, workshops, mills, and production yards. Humans, orcs, and goblins work around booming machines in steelworks, woodworking shops, furniture plants, textile mills, and clothing manufactories, keeping the city's industry alive from dawn until night. It is the engine room of Newport Maeve, loud, crowded, smoke-stained, and essential to everything the city builds, sells, and consumes.",
+      "image": {
+        "src": "https://newportmaeve.com/assets/images/city/city-industrial-district.webp",
+        "alt": "Industrial District, a district of Newport Maeve"
+      },
+      "tags": ["industrial"],
+      "displayOrder": 2
+    },
+    {
+      "slug": "northport-district",
+      "name": "NorthPort District",
+      "summary": "The river-facing harbor where Newport Maeve opens itself to trade, rumor, contraband, and trouble.",
+      "description": "NorthPort is the river-facing industrial harbor of Newport Maeve, where cargo cranes, shipyards, taverns, customs offices, and smoke-stained warehouses press against the Zarina River. Sailors, dockworkers, smugglers, merchants, and private contractors move through its streets at all hours, making it one of the city's most useful and dangerous districts. It is the place where Newport Maeve opens itself to trade, rumor, contraband, and trouble from beyond the Moon Sea.",
+      "image": {
+        "src": "https://newportmaeve.com/assets/images/city/city-northport-district.webp",
+        "alt": "NorthPort District, a district of Newport Maeve"
+      },
+      "tags": ["harbor", "industrial", "dangerous"],
+      "displayOrder": 3
+    },
+    {
+      "slug": "living-district-b",
+      "name": "Living District B",
+      "summary": "Home to Newport Maeve's lower and middle working population, shaped by smoke, wages, and exhaustion.",
+      "description": "Living District B sits between NorthPort to the west and the Market District to the east, housing much of Newport Maeve's lower and middle working population. Many of its residents labor in the ports, factories, workshops, and supply yards, returning each evening to crowded streets shaped by smoke, wages, and exhaustion. Two large public parks serve as recreation grounds and part of the city's green lungs, offering rare open air in a district pressed between industry, trade, and the smog of progress.",
+      "image": {
+        "src": "https://newportmaeve.com/assets/images/city/city-living-district-b.webp",
+        "alt": "Living District B, a district of Newport Maeve"
+      },
+      "tags": ["residential", "green-space"],
+      "displayOrder": 4
+    },
+    {
+      "slug": "living-district-a",
+      "name": "Living District A",
+      "summary": "A main residential zone stretching between the Market District and the military fort.",
+      "description": "Living District A stretches between the Market District to the west and the city limits near the military fort, forming one of Newport Maeve's main residential zones. Its population works largely in municipal services, industrial administration, transport, supply, and support trades, with a smaller share employed by the nearby military presence. A large public park forms another part of the city's green lungs, giving the district a rare pocket of open air against the pressure of smoke, labor, and civic routine.",
+      "image": {
+        "src": "https://newportmaeve.com/assets/images/city/city-living-district-a.webp",
+        "alt": "Living District A, a district of Newport Maeve"
+      },
+      "tags": ["residential", "green-space"],
+      "displayOrder": 5
+    },
+    {
+      "slug": "luxury-district",
+      "name": "Luxury District",
+      "summary": "Sealed behind thick walls — a protected refuge for Newport Maeve's elite and their polished secrets.",
+      "description": "The Luxury District rises above Living District B, sealed behind thick walls and heavy guard, a protected refuge for Newport Maeve's elite and whoever manages to count as elite that month. Its bright beaches, cleaner water, private promenades, and modern houses offer the highest standard of comfort the city can provide. Behind its polished gates, wealth hides from the smoke, noise, and consequences that keep the rest of Newport Maeve alive.",
+      "image": {
+        "src": "https://newportmaeve.com/assets/images/city/city-luxury-district.webp",
+        "alt": "Luxury District, a district of Newport Maeve"
+      },
+      "tags": ["luxury", "residential"],
+      "displayOrder": 6
+    },
+    {
+      "slug": "military-base",
+      "name": "Military Base",
+      "summary": "A sealed compound outside the eastern wall — the Confederacy's quiet watch over the city.",
+      "description": "The military base stands outside Newport Maeve, close to the eastern city wall, sealed behind high concrete walls and strict access points. It serves as regional protection, recruitment center, and training ground for the Confederacy Army, keeping a quiet watch over the city and the lands beyond it. For most citizens, it remains almost invisible in daily life, exactly as a military presence should be in peaceful times.",
+      "image": {
+        "src": "https://newportmaeve.com/assets/images/city/city-military-base.webp",
+        "alt": "Military Base, a district of Newport Maeve"
+      },
+      "tags": ["military"],
+      "displayOrder": 7
+    }
+  ]
+}

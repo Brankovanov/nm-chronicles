@@ -1,25 +1,85 @@
 <header class="sheet-hero">
   <div class="sheet-hero-inner">
+    @if (character()) {
     <p class="sheet-eyebrow">The Newport Maeve Chronicles</p>
-    <h1 class="sheet-name">Miroslav Dion</h1>
-    <p class="sheet-tagline">The first of the Blood Blessed, and the last line when the dark comes calling.</p>
-    <div class="sheet-quote">“Outlived kings. Shaped empires. Still standing.”</div>
+    <h1 class="sheet-name">{{ character()?.name }}</h1>
+    <p class="sheet-tagline">{{ character()?.tagline }}</p>
+    <div class="sheet-quote">“{{ character()?.quote }}”</div>
+    } @else if (loading()) {
+    <p class="sheet-eyebrow">The Newport Maeve Chronicles</p>
+    <h1 class="sheet-name">Loading…</h1>
+    } @else {
+    <p class="sheet-eyebrow">The Newport Maeve Chronicles</p>
+    <h1 class="sheet-name">Character not found</h1>
+    }
   </div>
 </header>
 
+@if (loading()) {
+<div class="sheet-body">
+  <p class="loading-state">Loading character details…</p>
+</div>
+} @else if (character()) {
 <div class="sheet-body">
   <aside class="profile-block">
     <h2>Profile</h2>
-    <div class="profile-row"><div class="profile-key">Name</div><div class="profile-val">Miroslav Dion</div></div>
-        <div class="profile-row"><div class="profile-key">Race</div><div class="profile-val">Vampire (Blood Blessed Human)</div></div>
-        <div class="profile-row"><div class="profile-key">Abilities</div><div class="profile-val"><ul><li>Undetermined Lifespan</li><li>Preternatural strength and speed</li><li>Regeneration</li><li>Extensive mind and matter control over other BloodBlessed</li></ul></div></div>
-        <div class="profile-row"><div class="profile-key">Role</div><div class="profile-val">First of the Blood Blessed</div></div>
-        <div class="profile-row"><div class="profile-key">Age</div><div class="profile-val">Appears 40, but much older</div></div>
-        <div class="profile-row"><div class="profile-key">Hair</div><div class="profile-val">Dark with silver at temples</div></div>
-        <div class="profile-row"><div class="profile-key">Eyes</div><div class="profile-val">Crimson Red</div></div>
-        <div class="profile-row"><div class="profile-key">Affiliations</div><div class="profile-val"><ul><li>The Ironclad Consortium</li><li>The Blood Blessed</li><li>The OneTrue's contingency</li></ul></div></div>
-        <div class="profile-row"><div class="profile-key">Traits</div><div class="profile-val"><ul><li>Disciplined</li><li>Calculating</li><li>Ruthless Strategist</li><li>Unbreakable will</li></ul></div></div>
-        
+    <div class="profile-row">
+      <div class="profile-key">Name</div>
+      <div class="profile-val">Miroslav Dion</div>
+    </div>
+    <div class="profile-row">
+      <div class="profile-key">Race</div>
+      <div class="profile-val">Vampire (Blood Blessed Human)</div>
+    </div>
+    <div class="profile-row">
+      <div class="profile-key">Abilities</div>
+      <div class="profile-val">
+        <ul>
+          <li>Undetermined Lifespan</li>
+          <li>Preternatural strength and speed</li>
+          <li>Regeneration</li>
+          <li>Extensive mind and matter control over other BloodBlessed</li>
+        </ul>
+      </div>
+    </div>
+    <div class="profile-row">
+      <div class="profile-key">Role</div>
+      <div class="profile-val">First of the Blood Blessed</div>
+    </div>
+    <div class="profile-row">
+      <div class="profile-key">Age</div>
+      <div class="profile-val">Appears 40, but much older</div>
+    </div>
+    <div class="profile-row">
+      <div class="profile-key">Hair</div>
+      <div class="profile-val">Dark with silver at temples</div>
+    </div>
+    <div class="profile-row">
+      <div class="profile-key">Eyes</div>
+      <div class="profile-val">Crimson Red</div>
+    </div>
+    <div class="profile-row">
+      <div class="profile-key">Affiliations</div>
+      <div class="profile-val">
+        <ul>
+          <li>The Ironclad Consortium</li>
+          <li>The Blood Blessed</li>
+          <li>The OneTrue's contingency</li>
+        </ul>
+      </div>
+    </div>
+    <div class="profile-row">
+      <div class="profile-key">Traits</div>
+      <div class="profile-val">
+        <ul>
+          <li>Disciplined</li>
+          <li>Calculating</li>
+          <li>Ruthless Strategist</li>
+          <li>Unbreakable will</li>
+        </ul>
+      </div>
+    </div>
+
   </aside>
 
   <section class="sheet-main">
@@ -27,24 +87,47 @@
     <h2 class="section-title">Miroslav Dion</h2>
     <div class="divider"></div>
     <div class="sheet-bio">
-      <p>He was a soldier lifetimes ago, then he became a Blood Blessed Predator. He learned to control the hunger and built a unique society of special people. Now he is a Legal Mogul, pulling the strings of Underground syndicates. With his vast influence and wealth, he is the last contingency of the all-knowing One True against incoming dark threats.</p>
+      <p>He was a soldier lifetimes ago, then he became a Blood Blessed Predator. He learned to control the hunger and
+        built a unique society of special people. Now he is a Legal Mogul, pulling the strings of Underground
+        syndicates. With his vast influence and wealth, he is the last contingency of the all-knowing One True against
+        incoming dark threats.</p>
     </div>
 
     <div class="sheet-gallery">
       <div class="gallery-row">
-            <div class="gallery-slot"><div class="gallery-frame"><img src="../assets/images/miroslav-dion/miroslav-dion-portrait.webp" alt="Portrait of Miroslav Dion" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('is-empty');this.parentNode.insertAdjacentHTML('beforeend','&lt;span class=&quot;frame-empty&quot;&gt;Coming soon&lt;/span&gt;')" style="cursor: zoom-in;"></div><div class="gallery-label">Portrait</div></div>
-            <div class="gallery-slot"><div class="gallery-frame"><img src="../assets/images/miroslav-dion/miroslav-dion-item1.webp" alt="Insignia of Miroslav Dion" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('is-empty');this.parentNode.insertAdjacentHTML('beforeend','&lt;span class=&quot;frame-empty&quot;&gt;Coming soon&lt;/span&gt;')" style="cursor: zoom-in;"></div><div class="gallery-label">Insignia</div></div>
-          </div>
-          <div class="gallery-slot gallery-slot--wide"><div class="gallery-frame"><img src="../assets/images/miroslav-dion/miroslav-dion-turnaround.webp" alt="Turnaround View of Miroslav Dion" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('is-empty');this.parentNode.insertAdjacentHTML('beforeend','&lt;span class=&quot;frame-empty&quot;&gt;Coming soon&lt;/span&gt;')" style="cursor: zoom-in;"></div><div class="gallery-label">Turnaround View</div></div>
+        <div class="gallery-slot">
+          <div class="gallery-frame"><img src="../assets/images/miroslav-dion/miroslav-dion-portrait.webp"
+              alt="Portrait of Miroslav Dion" loading="lazy"
+              onerror="this.style.display='none';this.parentNode.classList.add('is-empty');this.parentNode.insertAdjacentHTML('beforeend','&lt;span class=&quot;frame-empty&quot;&gt;Coming soon&lt;/span&gt;')"
+              style="cursor: zoom-in;"></div>
+          <div class="gallery-label">Portrait</div>
+        </div>
+        <div class="gallery-slot">
+          <div class="gallery-frame"><img src="../assets/images/miroslav-dion/miroslav-dion-item1.webp"
+              alt="Insignia of Miroslav Dion" loading="lazy"
+              onerror="this.style.display='none';this.parentNode.classList.add('is-empty');this.parentNode.insertAdjacentHTML('beforeend','&lt;span class=&quot;frame-empty&quot;&gt;Coming soon&lt;/span&gt;')"
+              style="cursor: zoom-in;"></div>
+          <div class="gallery-label">Insignia</div>
+        </div>
+      </div>
+      <div class="gallery-slot gallery-slot--wide">
+        <div class="gallery-frame"><img src="../assets/images/miroslav-dion/miroslav-dion-turnaround.webp"
+            alt="Turnaround View of Miroslav Dion" loading="lazy"
+            onerror="this.style.display='none';this.parentNode.classList.add('is-empty');this.parentNode.insertAdjacentHTML('beforeend','&lt;span class=&quot;frame-empty&quot;&gt;Coming soon&lt;/span&gt;')"
+            style="cursor: zoom-in;"></div>
+        <div class="gallery-label">Turnaround View</div>
+      </div>
     </div>
 
-    <div class="sheet-fulllink"><a id="viewSheet" data-full="../assets/images/miroslav-dion/miroslav-dion-sheet.webp" data-alt="Miroslav Dion full character sheet">View the full character sheet →</a></div>
+    <div class="sheet-fulllink"><a id="viewSheet" data-full="../assets/images/miroslav-dion/miroslav-dion-sheet.webp"
+        data-alt="Miroslav Dion full character sheet">View the full character sheet →</a></div>
   </section>
 </div>
-
+}
 <nav class="sheet-crosslinks">
   <a href="../index.html#characters">← Back to all characters</a>
-  <a href="https://newport-maeve.fandom.com/wiki/Newport_Maeve_Chronicles_Wiki" target="_blank" rel="noopener">Fandom Wiki →</a>
+  <a href="https://newport-maeve.fandom.com/wiki/Newport_Maeve_Chronicles_Wiki" target="_blank" rel="noopener">Fandom
+    Wiki →</a>
   <a href="../index.html#listen">Listen to the Prequel →</a>
 </nav>
 

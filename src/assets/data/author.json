@@ -1,0 +1,30 @@
+{
+  "name": "Dean Jordanov",
+  "bio": "Blue collar from Eastern Europe gone world-builder. One-man army handling all writing, illustrations and technical aspects with a lot of human power and various AI-assistance tools. All ideas, characters, settings, stories, twists and turns came from somewhere else entirely: from decades of living, working, and paying attention.",
+  "image": {
+    "src": "https://newportmaeve.com/assets/images/architect.webp",
+    "alt": "Dean Jordanov, creator of The Newport Maeve Chronicles"
+  },
+  "links": [
+    {
+      "label": "YouTube",
+      "url": "https://youtu.be/gg5DZfQgrho?si=nwGPkU6QQ4LaS6uQ",
+      "icon": "youtube"
+    },
+    {
+      "label": "Fandom Wiki",
+      "url": "https://newport-maeve.fandom.com/wiki/Newport_Maeve_Chronicles_Wiki",
+      "icon": "wiki"
+    },
+    {
+      "label": "DeviantArt",
+      "url": "https://www.deviantart.com/deant01/gallery/92908164/newport-maeve-chroncles-art",
+      "icon": "deviantart"
+    },
+    {
+      "label": "Facebook",
+      "url": "https://www.facebook.com/NewportMaeveChronicles/",
+      "icon": "facebook"
+    }
+  ]
+}

@@ -11,6 +11,7 @@ import { filter, map, startWith } from 'rxjs';
 })
 export class Header {
   private router = inject(Router);
+  isHome = computed(() => this.currentUrl() === '/');
 
   private currentUrl = toSignal(
     this.router.events.pipe(
@@ -20,5 +21,7 @@ export class Header {
     )
   );
 
-  isHome = computed(() => this.currentUrl() === '/');
+  scrollTo(id: string): void {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }

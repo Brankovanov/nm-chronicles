@@ -1,0 +1,24 @@
+{
+  "title": "The Newport Maeve Chronicles",
+  "tagline": "An immortal. A city of steam & shadows. A debt come due.",
+  "description": [
+    "The Newport Maeve Chronicles is a gothic noir fantasy series set in Elyssar, a world where vampires, angels, and demonic forces exist alongside a society of steam and ruthless progress.",
+    "Now old, dark forces are seeking vengeance and a thin crack to crawl through. They have adapted to the modern world and its refining, and, no longer content with flesh alone, they thrive on the extended boundaries of sin and grief.",
+    "The more a society perfects itself, the more elaborate its sins and sorrows grow — and on that very refinement, they feed. The demonic, unseen, slowly consumes the city, threatening to break the Confederacy itself.",
+    "Unless someone does something… unless someone acts as a last-line contingency."
+  ],
+  "stats": [
+    { "value": "9",  "label": "Chapters in the Prequel" },
+    { "value": "1",  "label": "City. Countless Secrets." },
+    { "value": "∞",  "label": "Years of Hidden History" },
+    { "value": "1",  "label": "Thin Point Between Worlds" }
+  ],
+  "coverImage": {
+    "src": "https://newportmaeve.com/assets/images/cover.webp",
+    "alt": "Cover art for The Newport Maeve Chronicles"
+  },
+  "ironcladImage": {
+    "src": "https://newportmaeve.com/assets/images/ironclad.webp",
+    "alt": "The Ironclad Consortium tower in Newport Maeve"
+  }
+}

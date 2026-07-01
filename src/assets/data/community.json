@@ -1,0 +1,26 @@
+[
+  {
+    "label": "YouTube",
+    "description": "Official prequel audiobook",
+    "url": "https://youtu.be/gg5DZfQgrho?si=nwGPkU6QQ4LaS6uQ",
+    "icon": "youtube"
+  },
+  {
+    "label": "Fandom Wiki",
+    "description": "Lore, characters & world-building",
+    "url": "https://newport-maeve.fandom.com/wiki/Newport_Maeve_Chronicles_Wiki",
+    "icon": "wiki"
+  },
+  {
+    "label": "DeviantArt",
+    "description": "Character concept designs & art",
+    "url": "https://www.deviantart.com/deant01/gallery/92908164/newport-maeve-chroncles-art",
+    "icon": "deviantart"
+  },
+  {
+    "label": "Facebook",
+    "description": "Production announcements",
+    "url": "https://www.facebook.com/NewportMaeveChronicles/",
+    "icon": "facebook"
+  }
+]
