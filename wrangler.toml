@@ -1,0 +1,12 @@
+name = "nm-chronicles"
+main = "src/cloudflare/worker.ts"
+compatibility_date = "2026-07-02"
+account_id = ""
+
+[env.production]
+
+[build]
+command = "npm run build:cloudflare"
+
+[build.upload]
+dir = "dist/nm-chronicles-cloudflare/browser"

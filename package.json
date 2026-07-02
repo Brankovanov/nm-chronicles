@@ -7,7 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:nm-chronicles": "node dist/nm-chronicles/server/server.mjs"
+    "serve:ssr:nm-chronicles": "node dist/nm-chronicles/server/server.mjs",
+    "build:github-pages": "ng build --configuration githubPages",
+    "deploy:github-pages": "npx gh-pages -d dist/github-pages",
+    "build:cloudflare": "ng build --configuration cloudflare",
+    "deploy:cloudflare": "npx wrangler publish --env production"
   },
   "private": true,
   "packageManager": "npm@11.13.0",
@@ -30,9 +34,11 @@
     "@angular/compiler-cli": "^22.0.0",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
+    "gh-pages": "^5.0.0",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
     "typescript": "~6.0.2",
-    "vitest": "^4.0.8"
+    "vitest": "^4.0.8",
+    "wrangler": "^3.0.0"
   }
 }

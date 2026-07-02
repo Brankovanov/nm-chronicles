@@ -66,6 +66,31 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "githubPages": {
+              "baseHref": "/nm-chronicles/",
+              "outputPath": "dist/github-pages",
+              "outputMode": "static",
+              "ssr": false,
+              "server": false,
+              "optimization": true,
+              "sourceMap": false,
+              "extractLicenses": true,
+              "outputHashing": "all"
+            },
+            "cloudflare": {
+              "baseHref": "/",
+              "outputPath": "dist/nm-chronicles-cloudflare",
+              "outputMode": "server",
+              "tsConfig": "tsconfig.cloudflare.json",
+              "ssr": {
+                "entry": "src/cloudflare/worker.ts",
+                "platform": "neutral"
+              },
+              "optimization": true,
+              "sourceMap": false,
+              "extractLicenses": true,
+              "outputHashing": "all"
             }
           },
           "defaultConfiguration": "production"
