@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ScrollService } from '../../../services/scroll.service';
+import { ContentService } from '../../../services/content.service';
 
 @Component({
   selector: 'app-hero',
@@ -8,7 +9,10 @@ import { ScrollService } from '../../../services/scroll.service';
   styleUrls: ['./hero.scss'],
 })
 export class Hero {
-  constructor(private scrollService: ScrollService) { }
+  private scrollService = inject(ScrollService);
+  private contentService = inject(ContentService);
+
+  content = this.contentService.getHomeContent().hero;
 
   scrollTo(id: string): void {
     this.scrollService.scrollTo(id);

@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CharacterDataService, CharacterDTO } from '../../../services/character-data.service';
+import { ContentService } from '../../../services/content.service';
 
 @Component({
   selector: 'app-characters',
@@ -10,7 +11,9 @@ import { CharacterDataService, CharacterDTO } from '../../../services/character-
 })
 export class Characters {
   private characterDataService = inject(CharacterDataService);
+  private contentService = inject(ContentService);
 
+  content = this.contentService.getHomeContent().characters;
   characters = signal<CharacterDTO[]>([]);
   loading = signal(true);
   error = signal<string | null>(null);
@@ -27,7 +30,7 @@ export class Characters {
       const value = await this.characterDataService.getCharacters();
       this.characters.set(value);
     } catch {
-      this.error.set('Unable to load character data.');
+      this.error.set(this.content.errorMessage);
     } finally {
       this.loading.set(false);
     }

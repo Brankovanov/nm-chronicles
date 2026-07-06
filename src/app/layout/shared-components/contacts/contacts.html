@@ -1,26 +1,16 @@
 <section id="connect" class="connect-section">
   <div class="connect-inner">
-    <p class="section-label">Follow the Chronicles</p>
-    <h2 class="section-title">Join the World</h2>
+    <p class="section-label">{{ content.label }}</p>
+    <h2 class="section-title">{{ content.title }}</h2>
     <div class="ornament"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
-    <p class="section-lead">The story is growing. Follow production updates, explore the lore, and see the world take shape.</p>
+    <p class="section-lead">{{ content.lead }}</p>
     <div class="links-grid">
-      <a href="https://youtu.be/gg5DZfQgrho?si=nwGPkU6QQ4LaS6uQ" data-site-link="youtube" target="_blank" rel="noopener" class="link-card">
-        <div class="link-icon">&#9654;</div>
-        <div><div class="link-label">YouTube</div><div class="link-desc">Official prequel audiobook</div></div>
-      </a>
-      <a href="https://newport-maeve.fandom.com/wiki/Newport_Maeve_Chronicles_Wiki" data-site-link="fandomWiki" target="_blank" rel="noopener" class="link-card">
-        <div class="link-icon">&#128214;</div>
-        <div><div class="link-label">Fandom Wiki</div><div class="link-desc">Lore, characters &amp; world-building</div></div>
-      </a>
-      <a href="https://www.deviantart.com/deant01/gallery/92908164/newport-maeve-chroncles-art" data-site-link="deviantArt" target="_blank" rel="noopener" class="link-card">
-        <div class="link-icon">&#127912;</div>
-        <div><div class="link-label">DeviantArt</div><div class="link-desc">Character concept designs &amp; art</div></div>
-      </a>
-      <a href="https://www.facebook.com/NewportMaeveChronicles/" data-site-link="facebook" target="_blank" rel="noopener" class="link-card">
-        <div class="link-icon">&#128226;</div>
-        <div><div class="link-label">Facebook</div><div class="link-desc">Production announcements</div></div>
-      </a>
+      @for (link of content.links; track content.links.indexOf(link)) {
+        <a [href]="link.href" [attr.data-site-link]="link.siteLink" target="_blank" rel="noopener" class="link-card">
+          <div class="link-icon">{{ link.icon }}</div>
+          <div><div class="link-label">{{ link.label }}</div><div class="link-desc">{{ link.description }}</div></div>
+        </a>
+      }
     </div>
   </div>
 </section>

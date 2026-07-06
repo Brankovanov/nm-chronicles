@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ContentService } from '../../../services/content.service';
 
 @Component({
   selector: 'app-author',
@@ -6,4 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './author.html',
   styleUrls: ['./author.scss'],
 })
-export class Author {}
+export class Author {
+  private contentService = inject(ContentService);
+
+  content = this.contentService.getHomeContent().author;
+}

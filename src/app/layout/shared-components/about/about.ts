@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ContentService } from '../../../services/content.service';
 
 @Component({
   selector: 'app-about',
@@ -6,4 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './about.html',
   styleUrls: ['./about.scss'],
 })
-export class About {}
+export class About {
+  private contentService = inject(ContentService);
+
+  content = this.contentService.getHomeContent().about;
+}
