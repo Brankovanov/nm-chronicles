@@ -20,12 +20,16 @@
 }
 
 .about-img-wrap {
+  width: 100%;
+  height: 100%;
   border: 1px solid var(--border);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
 }
 
 .about-img-wrap img {
-  width: 100%;
+  width: 100%;  
+  height: 100%;
+  object-fit: cover;
   display: block;
   filter: brightness(0.9);
 }
@@ -59,5 +63,10 @@
   .about {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .about-img-wrap img {
+    max-height: 100vh;
+    object-position: 0% 10%;
   }
 }

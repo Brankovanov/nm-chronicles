@@ -8,6 +8,7 @@ import { Contacts } from '../../layout/shared-components/contacts/contacts';
 import { Hero } from '../../layout/shared-components/hero/hero';
 import { Prequal } from '../../layout/shared-components/prequal/prequal';
 import { Quotations } from '../../layout/shared-components/quotations/quotations';
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
   selector: 'app-home',
@@ -21,6 +22,7 @@ import { Quotations } from '../../layout/shared-components/quotations/quotations
     Author,
     Contacts,
   ],
+  providers: [ ScrollService],
   templateUrl: './home.html',
   styleUrls: ['./home.scss'],
 })
