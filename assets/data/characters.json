@@ -31,19 +31,19 @@
     "bio": "He was a soldier lifetimes ago, then he became a Blood Blessed Predator. He learned to control the hunger and built a unique society of special people. Now he is a Legal Mogul, pulling the strings of Underground syndicates. With his vast influence and wealth, he is the last contingency of the all-knowing One True against incoming dark threats.",
     "images": {
       "sheet": {
-        "src": "/assets/images/miroslav-dion/miroslav-dion-sheet.webp",
+        "src": "/nm-chronicles/assets/images/miroslav-dion/miroslav-dion-sheet.webp",
         "alt": "Full character sheet of Miroslav Dion"
       },
       "portrait": {
-        "src": "/assets/images/miroslav-dion/miroslav-dion-portrait.webp",
+        "src": "/nm-chronicles/assets/images/miroslav-dion/miroslav-dion-portrait.webp",
         "alt": "Portrait of Miroslav Dion"
       },
       "item": {
-        "src": "/assets/images/miroslav-dion/miroslav-dion-sigil.webp",
+        "src": "/nm-chronicles/assets/images/miroslav-dion/miroslav-dion-sigil.webp",
         "alt": "Insignia of Miroslav Dion"
       },
       "turnaround": {
-        "src": "/assets/images/miroslav-dion/miroslav-dion-turnaround.webp",
+        "src": "/nm-chronicles/assets/images/miroslav-dion/miroslav-dion-turnaround.webp",
         "alt": "Turnaround of Miroslav Dion"
       }
     },
@@ -81,19 +81,19 @@
     "bio": "Where the veil between worlds wears thin, the One True sets a guardian. The Protector is that guardian for Newport Maeve — an angelic warrior who does not act from mercy but from duty, holding the city's seams against the things that would tear through. Patient, unyielding, and bound by laws older than the Confederacy itself, the Protector watches a city that does not know it is being watched.",
     "images": {
       "sheet": {
-        "src": "/assets/images/the-protector/the-protector-sheet.webp",
+        "src": "/nm-chronicles/assets/images/the-protector/the-protector-sheet.webp",
         "alt": "Full character sheet of The Protector"
       },
       "portrait": {
-        "src": "/assets/images/the-protector/the-protector-portrait.webp",
+        "src": "/nm-chronicles/assets/images/the-protector/the-protector-portrait.webp",
         "alt": "Portrait of The Protector"
       },
       "item": {
-        "src": "/assets/images/the-protector/the-protector-sigil.webp",
+        "src": "/nm-chronicles/assets/images/the-protector/the-protector-sigil.webp",
         "alt": "Insignia of The Protector"
       },
       "turnaround": {
-        "src": "/assets/images/the-protector/the-protector-turnaround.webp",
+        "src": "/nm-chronicles/assets/images/the-protector/the-protector-turnaround.webp",
         "alt": "Turnaround of The Protector"
       }
     },
@@ -129,19 +129,19 @@
     "bio": "He arrives unannounced and leaves no trace — an emissary of the One True. He conscripted Miroslav Dion and introduced the Blood Blessing into the world of Elyssar.",
     "images": {
       "sheet": {
-        "src": "/assets/images/the-unknown-emissary/the-unknown-emissary-sheet.webp",
+        "src": "/nm-chronicles/assets/images/the-unknown-emissary/the-unknown-emissary-sheet.webp",
         "alt": "Full character sheet of The Unknown Emissary"
       },
       "portrait": {
-        "src": "/assets/images/the-unknown-emissary/the-unknown-emissary-portrait.webp",
+        "src": "/nm-chronicles/assets/images/the-unknown-emissary/the-unknown-emissary-portrait.webp",
         "alt": "Portrait of The Unknown Emissary"
       },
       "item": {
-        "src": "/assets/images/the-unknown-emissary/the-unknown-emissary-sigil.webp",
+        "src": "/nm-chronicles/assets/images/the-unknown-emissary/the-unknown-emissary-sigil.webp",
         "alt": "Sigil of The Unknown Emissary"
       },
       "turnaround": {
-        "src": "/assets/images/the-unknown-emissary/the-unknown-emissary-turnaround.webp",
+        "src": "/nm-chronicles/assets/images/the-unknown-emissary/the-unknown-emissary-turnaround.webp",
         "alt": "Turnaround of The Unknown Emissary"
       }
     },
@@ -178,19 +178,19 @@
     "bio": "George L'Aris carries out the Consortium's will in the places polite society does not look. A vampire carrying silver blades to hunt those of his kind that fail to control the Thirst. He is equipped with Diagnosis Spectacles to see what the Blood Blessed think is hidden.",
     "images": {
       "sheet": {
-        "src": "/assets/images/george-laris/george-laris-sheet.webp",
+        "src": "/nm-chronicles/assets/images/george-laris/george-laris-sheet.webp",
         "alt": "Full character sheet of George L'Aris"
       },
       "portrait": {
-        "src": "/assets/images/george-laris/george-laris-portrait.webp",
+        "src": "/nm-chronicles/assets/images/george-laris/george-laris-portrait.webp",
         "alt": "Portrait of George L'Aris"
       },
       "item": {
-        "src": "/assets/images/george-laris/george-laris-sigil.webp",
+        "src": "/nm-chronicles/assets/images/george-laris/george-laris-sigil.webp",
         "alt": "Insignia of George L'Aris"
       },
       "turnaround": {
-        "src": "/assets/images/george-laris/george-laris-turnaround.webp",
+        "src": "/nm-chronicles/assets/images/george-laris/george-laris-turnaround.webp",
         "alt": "Turnaround of George L'Aris"
       }
     },
@@ -228,19 +228,19 @@
     "bio": "Newport Maeve is built on hunger, and Aland learned young how to feed it just enough to slip a hand into its pocket. He is a street con artist saved by Dion from a devil brute, then recruited by Ironclad for his 'Presentation Skills'.",
     "images": {
       "sheet": {
-        "src": "/assets/images/aland/aland-sheet.webp",
+        "src": "/nm-chronicles/assets/images/aland/aland-sheet.webp",
         "alt": "Full character sheet of Aland"
       },
       "portrait": {
-        "src": "/assets/images/aland/aland-portrait.webp",
+        "src": "/nm-chronicles/assets/images/aland/aland-portrait.webp",
         "alt": "Portrait of Aland"
       },
       "item": {
-        "src": "/assets/images/aland/aland-sigil.webp",
+        "src": "/nm-chronicles/assets/images/aland/aland-sigil.webp",
         "alt": "Insignia of Aland"
       },
       "turnaround": {
-        "src": "/assets/images/aland/aland-turnaround.webp",
+        "src": "/nm-chronicles/assets/images/aland/aland-turnaround.webp",
         "alt": "Turnaround of Aland"
       }
     },
@@ -271,19 +271,19 @@
     "bio": "She was arranged, promised, and paraded toward a Civic Center wedding she never chose. When she ran from that fate, the city had another waiting — as Newport Maeve always does. She is almost killed by the devil brute, only to be almost 'saved' by Dion.",
     "images": {
       "sheet": {
-        "src": "/assets/images/unnamed-bride/unnamed-bride-sheet.webp",
+        "src": "/nm-chronicles/assets/images/unnamed-bride/unnamed-bride-sheet.webp",
         "alt": "Full character sheet of Unnamed Bride"
       },
       "portrait": {
-        "src": "/assets/images/unnamed-bride/unnamed-bride-portrait.webp",
+        "src": "/nm-chronicles/assets/images/unnamed-bride/unnamed-bride-portrait.webp",
         "alt": "Portrait of Unnamed Bride"
       },
       "item": {
-        "src": "/assets/images/unnamed-bride/unnamed-bride-sigil.webp",
+        "src": "/nm-chronicles/assets/images/unnamed-bride/unnamed-bride-sigil.webp",
         "alt": "Insignia of Unnamed Bride"
       },
       "turnaround": {
-        "src": "/assets/images/unnamed-bride/unnamed-bride-turnaround.webp",
+        "src": "/nm-chronicles/assets/images/unnamed-bride/unnamed-bride-turnaround.webp",
         "alt": "Turnaround of Unnamed Bride"
       }
     },
