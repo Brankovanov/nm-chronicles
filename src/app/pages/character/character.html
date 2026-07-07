@@ -17,7 +17,7 @@
 
 @if (loading()) {
 <div class="sheet-body">
-  <p class="loading-state">Loading character details…</p>
+  <app-loader message="Loading character details…"></app-loader>
 </div>
 } @else if (character()) {
 <div class="sheet-body">

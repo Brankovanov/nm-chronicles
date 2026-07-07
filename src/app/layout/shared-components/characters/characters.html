@@ -12,7 +12,7 @@
     </div>
     <div class="char-grid">
       @if (loading()) {
-        <div class="loading-state">Loading characters…</div>
+        <app-loader [message]="content.loadingMessage"></app-loader>
       } @else if (error()) {
         <div class="error-state">{{ error() }}</div>
       } @else {
