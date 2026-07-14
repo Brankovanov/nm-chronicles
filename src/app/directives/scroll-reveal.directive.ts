@@ -23,7 +23,7 @@ export class ScrollRevealDirective implements OnInit, OnDestroy {
   readonly revealClass = input('is-visible', { alias: 'appScrollReveal' });
 
   // How much of the element must be visible before triggering (0 - 1)
-  readonly threshold = input(0.15);
+  readonly threshold = input(0.1);
 
   // Only trigger once, then stop observing
   readonly once = input(true);

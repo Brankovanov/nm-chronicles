@@ -16,6 +16,16 @@ export class Header {
   private scrollService = inject(ScrollService);
   private viewChangeService = inject(ViewChangeService);
   isPage: Signal<boolean> = computed(() => (this.currentUrl()?.includes('city') || this.currentUrl()?.includes('character')) ?? false);
+  homeBackSection = computed(() => {
+    const url = this.currentUrl() ?? '';
+    if (url.includes('/city')) {
+      return 'map';
+    }
+    if (url.includes('/character')) {
+      return 'characters';
+    }
+    return null;
+  });
   menuOpen: WritableSignal<boolean> = signal(false);
 
   private currentUrl = toSignal(
@@ -45,6 +55,12 @@ export class Header {
 
   closeMenu(): void {
     this.menuOpen.set(false);
+  }
+
+  goHome(event: MouseEvent, section: string | null): void {
+    event.preventDefault();
+    this.router.navigate([''], { state: section ? { homeSection: section } : {} });
+    this.closeMenu();
   }
 
   scrollTo(id: string): void {

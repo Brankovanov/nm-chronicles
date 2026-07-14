@@ -20,7 +20,7 @@
   </button>
 </div>
 
-<section class="districts fade-up-section" appScrollReveal="is-visible">
+<section class="districts fade-up-section" appScrollReveal="is-visible" [threshold]="0">
   <p class="districts-label">The City</p>
   <h2 class="districts-title">Districts of Newport Maeve</h2>
   <div class="district-grid">
@@ -37,8 +37,8 @@
 </section>
 
 <nav class="city-crosslinks">
-  <a href="index.html#map">← Back to home</a>
-  <a href="index.html#characters">Characters →</a>
+  <a [routerLink]="['/']" data-home-section="map" (click)="navigateHome($event, 'map')">← Back to home</a>
+  <a [routerLink]="['/']" data-home-section="characters" (click)="navigateHome($event, 'characters')">Characters →</a>
   <a href="https://newport-maeve.fandom.com/wiki/Newport_Maeve_Chronicles_Wiki" target="_blank" rel="noopener">Fandom Wiki →</a>
 </nav>
 

@@ -1,7 +1,7 @@
 <header>
     <nav>
         @if (isPage()) {
-            <a routerLink="['/']" class="nav-logo">NM Chronicles</a>
+            <a [routerLink]="['/']" class="nav-logo" [attr.data-home-section]="homeBackSection()" (click)="goHome($event, homeBackSection())">NM Chronicles</a>
         } @else {
             <button (click)="scrollTo('main')" class="nav-logo">NM Chronicles</button>
         }
@@ -20,7 +20,7 @@
 
         <ul class="nav-links">
             @if (isPage()) {
-                <a [routerLink]="['/']" class="nav-back" (click)="closeMenu()">← Back to Home</a>
+                <a [routerLink]="['/']" class="nav-back" [attr.data-home-section]="homeBackSection()" (click)="goHome($event, homeBackSection())">← Back to Home</a>
             } @else {
                 <li><button type="button" (click)="scrollTo('about')">About</button></li>
                 <li><button type="button" (click)="scrollTo('listen')">Listen</button></li>
@@ -35,7 +35,7 @@
         <div class="mobile-menu">
             <ul>
                 @if (isPage()) {
-                    <li><a [routerLink]="['/']" (click)="closeMenu()">← Back to Home</a></li>
+                    <li><a [routerLink]="['/']" [attr.data-home-section]="homeBackSection()" (click)="goHome($event, homeBackSection())">← Back to Home</a></li>
                 } @else {
                     <li><button type="button" (click)="scrollTo('about')">About</button></li>
                     <li><button type="button" (click)="scrollTo('listen')">Listen</button></li>

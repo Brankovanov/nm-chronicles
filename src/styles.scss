@@ -345,7 +345,7 @@ section {
 }
 .fade-up-section {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 
   &.is-visible {

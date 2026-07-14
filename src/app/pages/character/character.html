@@ -147,11 +147,11 @@
 </div>
 }
 <nav class="sheet-crosslinks">
-  <a href="../index.html#characters">← Back to all characters</a>
+  <a [routerLink]="['/']" data-home-section="characters" (click)="navigateHome($event, 'characters')">← Back to all characters</a>
   <a href="https://newport-maeve.fandom.com/wiki/Newport_Maeve_Chronicles_Wiki" target="_blank" rel="noopener">
     Fandom Wiki →
   </a>
-  <a href="../index.html#listen">Listen to the Prequel →</a>
+  <a [routerLink]="['/']" data-home-section="listen" (click)="navigateHome($event, 'listen')">Listen to the Prequel →</a>
 </nav>
 
 <app-contacts></app-contacts>

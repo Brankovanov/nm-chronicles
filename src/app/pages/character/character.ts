@@ -1,5 +1,5 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CharacterDataService, CharacterDTO } from '../../services/character-data.service';
 import { Contacts } from '../../layout/shared-components/contacts/contacts';
 import { Loader } from '../../layout/shared-components/loader/loader';
@@ -10,7 +10,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
 
 @Component({
   selector: 'app-character',
-  imports: [Contacts, Loader, ScrollRevealDirective],
+  imports: [Contacts, Loader, ScrollRevealDirective, RouterLink],
   templateUrl: './character.html',
   styleUrls: ['./character.scss'],
 })
@@ -37,6 +37,11 @@ export class Character {
   openLightbox(src: string, alt = ''): void {
     console.log(`Character: openLightbox() called `);
     this.lightHouseService.show(src, alt);
+  }
+
+  navigateHome(event: MouseEvent, section: string): void {
+    event.preventDefault();
+    this.router.navigate([''], { state: { homeSection: section } });
   }
 
   private async loadCharacter(): Promise<void> {
