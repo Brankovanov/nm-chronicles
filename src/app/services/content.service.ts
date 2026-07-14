@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import homeContent from '../../../assets/data/home-content.json';
+import templateContent from '../../../assets/data/template-content.json';
 
 export interface HomeContent {
   hero: {
@@ -68,11 +69,70 @@ export interface HomeContent {
   };
 }
 
+export interface TemplateContent {
+  header: {
+    logo: string;
+    backToHome: string;
+    about: string;
+    listen: string;
+    characters: string;
+    city: string;
+    author: string;
+    connect: string;
+  };
+  footer: {
+    logo: string;
+    subtitle: string;
+    credit: string;
+    copy: string;
+  };
+  cityPage: {
+    heroEyebrow: string;
+    generalLabel: string;
+    viewMapLabel: string;
+    districtsLabel: string;
+    districtsTitle: string;
+    backToHome: string;
+    charactersLink: string;
+    fandomWikiLabel: string;
+  };
+  characterPage: {
+    pageEyebrow: string;
+    loadingTitle: string;
+    notFoundTitle: string;
+    profileTitle: string;
+    propertyLabels: {
+      name: string;
+      race: string;
+      abilities: string;
+      role: string;
+      age: string;
+      hair: string;
+      eyes: string;
+      affiliations: string;
+      traits: string;
+    };
+    sectionTitle: string;
+    portraitLabel: string;
+    insigniaLabel: string;
+    turnaroundLabel: string;
+    viewSheetLabel: string;
+    backToCharacters: string;
+    fandomWikiLabel: string;
+    listenPrequel: string;
+  };
+}
+
 @Injectable({ providedIn: 'root' })
 export class ContentService {
   private content = homeContent as HomeContent;
+  private template = templateContent as TemplateContent;
 
   getHomeContent(): HomeContent {
     return this.content;
+  }
+
+  getTemplateContent(): TemplateContent {
+    return this.template;
   }
 }

@@ -3,6 +3,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink } from "@angular/router";
 import { ScrollService } from '../../services/scroll.service';
 import { ViewChangeService } from '../../services/view-change.service';
+import { ContentService, TemplateContent } from '../../services/content.service';
 import { filter, map, startWith } from 'rxjs';
 
 @Component({
@@ -15,6 +16,8 @@ export class Header {
   private router = inject(Router);
   private scrollService = inject(ScrollService);
   private viewChangeService = inject(ViewChangeService);
+  private contentService = inject(ContentService);
+  header = this.contentService.getTemplateContent().header;
   isPage: Signal<boolean> = computed(() => (this.currentUrl()?.includes('city') || this.currentUrl()?.includes('character')) ?? false);
   homeBackSection = computed(() => {
     const url = this.currentUrl() ?? '';

@@ -1,0 +1,56 @@
+{
+  "header": {
+    "logo": "NM Chronicles",
+    "backToHome": "← Back to Home",
+    "about": "About",
+    "listen": "Listen",
+    "characters": "Characters",
+    "city": "The City",
+    "author": "Author",
+    "connect": "Connect"
+  },
+  "footer": {
+    "logo": "Newport Maeve Chronicles",
+    "subtitle": "World of Shadows & Power",
+    "credit": "Created by Dean Jordanov",
+    "copy": "© All rights reserved"
+  },
+  "cityPage": {
+    "heroEyebrow": "The Newport Maeve Chronicles · The World",
+    "generalLabel": "General Information",
+    "viewMapLabel": "View the full city map →",
+    "districtsLabel": "The City",
+    "districtsTitle": "Districts of Newport Maeve",
+    "backToHome": "← Back to home",
+    "charactersLink": "Characters →",
+    "fandomWikiLabel": "Fandom Wiki →"
+  },
+  "characterPage": {
+    "pageEyebrow": "The Newport Maeve Chronicles",
+    "loadingTitle": "Loading…",
+    "notFoundTitle": "Character not found",
+    "loaderMessage": "Loading character details…",
+    "profileTitle": "Profile",
+    "propertyLabels": {
+      "name": "Name",
+      "race": "Race",
+      "abilities": "Abilities",
+      "role": "Role",
+      "age": "Age",
+      "hair": "Hair",
+      "eyes": "Eyes",
+      "affiliations": "Affiliations",
+      "traits": "Traits"
+    },
+    "sectionTitle": "Character Info",
+    "portraitLabel": "Portrait",
+    "insigniaLabel": "Insignia",
+    "turnaroundLabel": "Turnaround View",
+    "viewSheetLabel": "View the full character sheet →",
+    "backToCharacters": "← Back to all characters",
+    "fandomWikiLabel": "Fandom Wiki →",
+    "listenPrequel": "Listen to the Prequel →",
+    "footnoteText": "Hover to reveal. More on the",
+    "wikiLinkText": "fandom wiki →"
+  }
+}

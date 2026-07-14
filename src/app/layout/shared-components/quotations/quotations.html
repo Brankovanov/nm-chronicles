@@ -1,12 +1,14 @@
 <section id="quotes" class="quotes-section fade-up-section" appScrollReveal="is-visible">
   <div class="quotes-inner">
-    <p class="section-label">From the Prequel</p>
-    <h2 class="section-title">Words from the Dark</h2>
+    <p class="section-label">{{ content.label }}</p>
+    <h2 class="section-title">{{ content.title }}</h2>
     <div class="ornament"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+      @for (quote of content.quotes; track quote.text) {
       <blockquote class="pull-quote">
-        <p>&ldquo;You presume the One True is asking.&rdquo;</p>
-        <cite>&mdash; The Entity, to Dion</cite>
+        <p>{{ quote.text }}</p>
+        <cite>{{ quote.cite }}</cite>
       </blockquote>
+      }
       <blockquote class="pull-quote">
         <p>&ldquo;Because it is the pinnacle, your crowning monument to progress. The most technologically advanced city of your age. Where ambition walks hand in hand with hubris. And progress breeds corruption. Corruption blossoms into indulgence. And indulgence sharpens hunger into obsession, polishes desire until it gleams. The hellspawn, Dion&hellip; they do not feed on blood or flesh. They feed on that refinement, on cravings shaped by civilization itself.&rdquo;</p>
         <cite>&mdash; The Entity, on Newport Maeve</cite>

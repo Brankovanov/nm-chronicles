@@ -1,13 +1,13 @@
 <header class="city-hero fade-up-section" appScrollReveal="is-visible">
   <div class="city-hero-inner">
-    <p class="city-eyebrow">The Newport Maeve Chronicles · The World</p>
+    <p class="city-eyebrow">{{ pageContent.heroEyebrow }}</p>
     <h1 class="city-name">{{ cityName() }}</h1>
     <p class="city-tagline">{{ citySubtitle() }}</p>
   </div>
 </header>
 
 <section class="city-body fade-up-section" appScrollReveal="is-visible">
-  <p class="section-label">General Information</p>
+  <p class="section-label">{{ pageContent.generalLabel }}</p>
   <div class="divider"></div>
   <div class="city-general">
     <p>{{ cityOverview() }}</p>
@@ -16,13 +16,13 @@
 
 <div class="city-fulllink">
   <button (click)="openLightbox(mapImageSrc(), mapImageAlt() || (cityName() + ' map'))" [attr.aria-label]="mapImageAlt()">
-    View the full city map →
+    {{ pageContent.viewMapLabel }}
   </button>
 </div>
 
 <section class="districts fade-up-section" appScrollReveal="is-visible" [threshold]="0">
-  <p class="districts-label">The City</p>
-  <h2 class="districts-title">Districts of Newport Maeve</h2>
+  <p class="districts-label">{{ pageContent.districtsLabel }}</p>
+  <h2 class="districts-title">{{ pageContent.districtsTitle }}</h2>
   <div class="district-grid">
     @for (district of districts(); track districts().indexOf(district)) {
     <article class="district-card fade-up-section" appScrollReveal="is-visible" id="{{ district.slug }}">
@@ -37,9 +37,9 @@
 </section>
 
 <nav class="city-crosslinks">
-  <a [routerLink]="['/']" data-home-section="map" (click)="navigateHome($event, 'map')">← Back to home</a>
-  <a [routerLink]="['/']" data-home-section="characters" (click)="navigateHome($event, 'characters')">Characters →</a>
-  <a href="https://newport-maeve.fandom.com/wiki/Newport_Maeve_Chronicles_Wiki" target="_blank" rel="noopener">Fandom Wiki →</a>
+  <a [routerLink]="['/']" data-home-section="map" (click)="navigateHome($event, 'map')">{{ pageContent.backToHome }}</a>
+  <a [routerLink]="['/']" data-home-section="characters" (click)="navigateHome($event, 'characters')">{{ pageContent.charactersLink }}</a>
+  <a href="https://newport-maeve.fandom.com/wiki/Newport_Maeve_Chronicles_Wiki" target="_blank" rel="noopener">{{ pageContent.fandomWikiLabel }}</a>
 </nav>
 
 <app-contacts></app-contacts>

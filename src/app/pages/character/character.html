@@ -1,38 +1,38 @@
 <header class="sheet-hero fade-up-section" appScrollReveal="is-visible">
   <div class="sheet-hero-inner">
     @if (character()) {
-    <p class="sheet-eyebrow">The Newport Maeve Chronicles</p>
+    <p class="sheet-eyebrow">{{ template.pageEyebrow }}</p>
     <h1 class="sheet-name">{{ character()?.name }}</h1>
     <p class="sheet-tagline">{{ character()?.tagline }}</p>
     <div class="sheet-quote">“{{ character()?.quote }}”</div>
     } @else if (loading()) {
-    <p class="sheet-eyebrow">The Newport Maeve Chronicles</p>
-    <h1 class="sheet-name">Loading…</h1>
+    <p class="sheet-eyebrow">{{ template.pageEyebrow }}</p>
+    <h1 class="sheet-name">{{ template.loadingTitle }}</h1>
     } @else {
-    <p class="sheet-eyebrow">The Newport Maeve Chronicles</p>
-    <h1 class="sheet-name">Character not found</h1>
+    <p class="sheet-eyebrow">{{ template.pageEyebrow }}</p>
+    <h1 class="sheet-name">{{ template.notFoundTitle }}</h1>
     }
   </div>
 </header>
 
 @if (loading()) {
 <div class="sheet-body">
-  <app-loader message="Loading character details…"></app-loader>
+  <app-loader message="{{ template.loadingTitle }}"></app-loader>
 </div>
 } @else if (character()) {
 <div class="sheet-body fade-up-section" appScrollReveal="is-visible">
   <aside class="profile-block">
-    <h2>Profile</h2>
+    <h2>{{ template.profileTitle }}</h2>
     <div class="profile-row">
-      <div class="profile-key">Name</div>
+      <div class="profile-key">{{ template.propertyLabels.name }}</div>
       <div class="profile-val">{{ character()?.name }}</div>
     </div>
     <div class="profile-row">
-      <div class="profile-key">Race</div>
+      <div class="profile-key">{{ template.propertyLabels.race }}</div>
       <div class="profile-val">{{ character()?.race }}</div>
     </div>
     <div class="profile-row">
-      <div class="profile-key">Abilities</div>
+      <div class="profile-key">{{ template.propertyLabels.abilities }}</div>
       <div class="profile-val">
         <ul>
           @for (ability of character()?.abilities ?? [];
@@ -43,23 +43,23 @@
       </div>
     </div>
     <div class="profile-row">
-      <div class="profile-key">Role</div>
+      <div class="profile-key">{{ template.propertyLabels.role }}</div>
       <div class="profile-val">{{ character()?.role }}</div>
     </div>
     <div class="profile-row">
-      <div class="profile-key">Age</div>
+      <div class="profile-key">{{ template.propertyLabels.age }}</div>
       <div class="profile-val">{{ character()?.age }}</div>
     </div>
     <div class="profile-row">
-      <div class="profile-key">Hair</div>
+      <div class="profile-key">{{ template.propertyLabels.hair }}</div>
       <div class="profile-val">{{ character()?.appearance?.hair }}</div>
     </div>
     <div class="profile-row">
-      <div class="profile-key">Eyes</div>
+      <div class="profile-key">{{ template.propertyLabels.eyes }}</div>
       <div class="profile-val">{{ character()?.appearance?.eyes }}</div>
     </div>
     <div class="profile-row">
-      <div class="profile-key">Affiliations</div>
+      <div class="profile-key">{{ template.propertyLabels.affiliations }}</div>
       <div class="profile-val">
         <ul>
           @for (affiliation of character()?.affiliations ?? [];
@@ -70,7 +70,7 @@
       </div>
     </div>
     <div class="profile-row">
-      <div class="profile-key">Traits</div>
+      <div class="profile-key">{{ template.propertyLabels.traits }}</div>
       <div class="profile-val">
         <ul>
           @for (trait of character()?.traits ?? [];
@@ -84,7 +84,7 @@
   </aside>
 
   <section class="sheet-main fade-up-section" appScrollReveal="is-visible">
-    <p class="section-label">Character Info</p>
+    <p class="section-label">{{ template.sectionTitle }}</p>
     <h2 class="section-title">{{ character()?.name }}</h2>
     <div class="divider"></div>
     <div class="sheet-bio">
@@ -105,7 +105,7 @@
                 this.parentNode.insertAdjacentHTML('beforeend','&lt;span class=&quot;frame-empty&quot;&gt;Coming soon&lt;/span&gt;')"
               style="cursor: zoom-in;">
           </div>
-          <div class="gallery-label">Portrait</div>
+          <div class="gallery-label">{{ template.portraitLabel }}</div>
         </div>
         <div class="gallery-slot fade-up-section" appScrollReveal="is-visible">
           <div class="gallery-frame">
@@ -119,7 +119,7 @@
               this.parentNode.insertAdjacentHTML('beforeend','&lt;span class=&quot;frame-empty&quot;&gt;Coming soon&lt;/span&gt;')"
               style="cursor: zoom-in;">
           </div>
-          <div class="gallery-label">Insignia</div>
+          <div class="gallery-label">{{ template.insigniaLabel }}</div>
         </div>
       </div>
       <div class="gallery-slot gallery-slot--wide fade-up-section" appScrollReveal="is-visible">
@@ -133,25 +133,25 @@
             this.parentNode.insertAdjacentHTML('beforeend','&lt;span class=&quot;frame-empty&quot;&gt;Coming soon&lt;/span&gt;')"
             style="cursor: zoom-in;">
         </div>
-        <div class="gallery-label">Turnaround View</div>
+        <div class="gallery-label">{{ template.turnaroundLabel }}</div>
       </div>
     </div>
 
     <div class="sheet-fulllink">
       <button id="viewSheet" (click)="openLightbox(assetUrl(character()?.images?.sheet?.src || ''), character()?.images?.sheet?.alt || (character()?.name + ' full character sheet'))" [attr.data-full]="assetUrl(character()?.images?.sheet?.src || '')"
         [attr.data-alt]="character()?.images?.sheet?.alt || (character()?.name + ' full character sheet')">
-        View the full character sheet →
+        {{ template.viewSheetLabel }}
       </button>
     </div>
   </section>
 </div>
 }
 <nav class="sheet-crosslinks">
-  <a [routerLink]="['/']" data-home-section="characters" (click)="navigateHome($event, 'characters')">← Back to all characters</a>
+  <a [routerLink]="['/']" data-home-section="characters" (click)="navigateHome($event, 'characters')">{{ template.backToCharacters }}</a>
   <a href="https://newport-maeve.fandom.com/wiki/Newport_Maeve_Chronicles_Wiki" target="_blank" rel="noopener">
-    Fandom Wiki →
+    {{ template.fandomWikiLabel }}
   </a>
-  <a [routerLink]="['/']" data-home-section="listen" (click)="navigateHome($event, 'listen')">Listen to the Prequel →</a>
+  <a [routerLink]="['/']" data-home-section="listen" (click)="navigateHome($event, 'listen')">{{ template.listenPrequel }}</a>
 </nav>
 
 <app-contacts></app-contacts>

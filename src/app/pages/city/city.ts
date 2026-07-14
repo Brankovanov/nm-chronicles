@@ -3,6 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { Contacts } from '../../layout/shared-components/contacts/contacts';
 import { LightHouseService } from '../../layout/shared-components/light-house/light-house.service';
 import { CityData, CityDataService } from '../../services/city-data.service';
+import { ContentService } from '../../services/content.service';
 import { APP_ENVIRONMENT_CONFIG, buildAssetUrl } from '../../config';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 
@@ -17,7 +18,9 @@ export class City {
   private readonly cityDataService = inject(CityDataService);
   private readonly envConfig = inject(APP_ENVIRONMENT_CONFIG);
   private readonly router = inject(Router);
+  private readonly contentService = inject(ContentService);
 
+  pageContent = this.contentService.getTemplateContent().cityPage;
   city = signal<CityData | null>(null);
   districts = computed(() => [...(this.city()?.districts ?? [])].sort((left, right) => left.displayOrder - right.displayOrder));
   cityName = computed(() => this.city()?.name ?? '');

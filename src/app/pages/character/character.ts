@@ -7,6 +7,7 @@ import { LoaderService } from '../../services/loader.service';
 import { LightHouseService } from '../../layout/shared-components/light-house/light-house.service';
 import { APP_ENVIRONMENT_CONFIG, buildAssetUrl } from '../../config';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
+import { ContentService } from '../../services/content.service';
 
 @Component({
   selector: 'app-character',
@@ -21,7 +22,9 @@ export class Character {
   private characterDataService = inject(CharacterDataService);
   private readonly loaderService = inject(LoaderService);
   private readonly envConfig = inject(APP_ENVIRONMENT_CONFIG);
+  private readonly contentService = inject(ContentService);
   assetUrl = (path: string) => buildAssetUrl(this.envConfig.assetBasePath, path);
+  template = this.contentService.getTemplateContent().characterPage;
   character = signal<CharacterDTO | null>(null);
   loading = signal(true);
   error = signal<string | null>(null);

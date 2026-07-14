@@ -1,9 +1,9 @@
 <header>
     <nav>
         @if (isPage()) {
-            <a [routerLink]="['/']" class="nav-logo" [attr.data-home-section]="homeBackSection()" (click)="goHome($event, homeBackSection())">NM Chronicles</a>
+            <a [routerLink]="['/']" class="nav-logo" [attr.data-home-section]="homeBackSection()" (click)="goHome($event, homeBackSection())">{{ header.logo }}</a>
         } @else {
-            <button (click)="scrollTo('main')" class="nav-logo">NM Chronicles</button>
+            <button (click)="scrollTo('main')" class="nav-logo">{{ header.logo }}</button>
         }
 
         <button
@@ -20,14 +20,14 @@
 
         <ul class="nav-links">
             @if (isPage()) {
-                <a [routerLink]="['/']" class="nav-back" [attr.data-home-section]="homeBackSection()" (click)="goHome($event, homeBackSection())">← Back to Home</a>
+                <a [routerLink]="['/']" class="nav-back" [attr.data-home-section]="homeBackSection()" (click)="goHome($event, homeBackSection())">{{ header.backToHome }}</a>
             } @else {
-                <li><button type="button" (click)="scrollTo('about')">About</button></li>
-                <li><button type="button" (click)="scrollTo('listen')">Listen</button></li>
-                <li><button type="button" (click)="scrollTo('characters')">Characters</button></li>
-                <li><button type="button" (click)="scrollTo('map')">The City</button></li>
-                <li><button type="button" (click)="scrollTo('author')">Author</button></li>
-                <li><button type="button" (click)="scrollTo('connect')">Connect</button></li>
+                <li><button type="button" (click)="scrollTo('about')">{{ header.about }}</button></li>
+                <li><button type="button" (click)="scrollTo('listen')">{{ header.listen }}</button></li>
+                <li><button type="button" (click)="scrollTo('characters')">{{ header.characters }}</button></li>
+                <li><button type="button" (click)="scrollTo('map')">{{ header.city }}</button></li>
+                <li><button type="button" (click)="scrollTo('author')">{{ header.author }}</button></li>
+                <li><button type="button" (click)="scrollTo('connect')">{{ header.connect }}</button></li>
             }
         </ul>
 
@@ -35,14 +35,14 @@
         <div class="mobile-menu">
             <ul>
                 @if (isPage()) {
-                    <li><a [routerLink]="['/']" [attr.data-home-section]="homeBackSection()" (click)="goHome($event, homeBackSection())">← Back to Home</a></li>
+                    <li><a [routerLink]="['/']" [attr.data-home-section]="homeBackSection()" (click)="goHome($event, homeBackSection())">{{ header.backToHome }}</a></li>
                 } @else {
-                    <li><button type="button" (click)="scrollTo('about')">About</button></li>
-                    <li><button type="button" (click)="scrollTo('listen')">Listen</button></li>
-                    <li><button type="button" (click)="scrollTo('characters')">Characters</button></li>
-                    <li><button type="button" (click)="scrollTo('map')">The City</button></li>
-                    <li><button type="button" (click)="scrollTo('author')">Author</button></li>
-                    <li><button type="button" (click)="scrollTo('connect')">Connect</button></li>
+                    <li><button type="button" (click)="scrollTo('about')">{{ header.about }}</button></li>
+                    <li><button type="button" (click)="scrollTo('listen')">{{ header.listen }}</button></li>
+                    <li><button type="button" (click)="scrollTo('characters')">{{ header.characters }}</button></li>
+                    <li><button type="button" (click)="scrollTo('map')">{{ header.city }}</button></li>
+                    <li><button type="button" (click)="scrollTo('author')">{{ header.author }}</button></li>
+                    <li><button type="button" (click)="scrollTo('connect')">{{ header.connect }}</button></li>
                 }
             </ul>
         </div>

@@ -1,14 +1,13 @@
 <section id="characters" class="characters-section fade-up-section" appScrollReveal="is-visible">
     <div class="characters-header">
-        <p class="section-label">The Cast</p>
-        <h2 class="section-title">Characters of Newport Maeve</h2>
+        <p class="section-label">{{ content.label }}</p>
+        <h2 class="section-title">{{ content.title }}</h2>
         <div class="ornament">
             <div class="ornament-line"></div>
             <div class="ornament-diamond"></div>
             <div class="ornament-line"></div>
         </div>
-        <p class="section-lead">Immortals and orphans. Angels and enforcers. In Newport Maeve, everyone is something
-            other than what they appear.</p>
+        <p class="section-lead">{{ content.lead }}</p>
     </div>
     <div class="char-grid">
       @if (loading()) {
@@ -35,7 +34,7 @@
         }
       }
     </div>
-    <p class="char-footnote">Hover to reveal. More on the
-        <a href="https://newport-maeve.fandom.com/wiki/Newport_Maeve_Chronicles_Wiki"   data-site-link="fandomWiki"
-            target="_blank">fandom wiki &rarr;</a></p>
+    <p class="char-footnote">{{ content.footnoteText }}
+        <a [href]="content.wikiLinkHref" data-site-link="fandomWiki"
+            target="_blank">{{ content.wikiLinkText }}</a></p>
 </section>
