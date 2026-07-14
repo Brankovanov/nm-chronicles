@@ -76,6 +76,7 @@ export interface TemplateContent {
     about: string;
     listen: string;
     characters: string;
+    quotes: string;
     city: string;
     author: string;
     connect: string;
