@@ -6,19 +6,27 @@ import { CityData, CityDataService } from '../../services/city-data.service';
 import { ContentService } from '../../services/content.service';
 import { APP_ENVIRONMENT_CONFIG, buildAssetUrl } from '../../config';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
+import { ShareOn } from '../../layout/shared-components/share-on/share-on';
 
 @Component({
   selector: 'app-city',
-  imports: [Contacts, ScrollRevealDirective, RouterLink],
+  imports: [Contacts, ScrollRevealDirective, RouterLink, ShareOn],
   templateUrl: './city.html',
   styleUrls: ['./city.scss'],
 })
 export class City {
   private readonly lightHouseService = inject(LightHouseService);
   private readonly cityDataService = inject(CityDataService);
-  private readonly envConfig = inject(APP_ENVIRONMENT_CONFIG);
+  readonly envConfig = inject(APP_ENVIRONMENT_CONFIG);
   private readonly router = inject(Router);
   private readonly contentService = inject(ContentService);
+
+  readonly shareUrl = computed(
+    () =>
+      typeof window !== 'undefined'
+        ? window.location.href
+        : this.envConfig.canonicalUrl
+  );
 
   pageContent = this.contentService.getTemplateContent().cityPage;
   city = signal<CityData | null>(null);

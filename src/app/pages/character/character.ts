@@ -8,10 +8,11 @@ import { LightHouseService } from '../../layout/shared-components/light-house/li
 import { APP_ENVIRONMENT_CONFIG, buildAssetUrl } from '../../config';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 import { ContentService } from '../../services/content.service';
+import { ShareOn } from '../../layout/shared-components/share-on/share-on';
 
 @Component({
   selector: 'app-character',
-  imports: [Contacts, Loader, ScrollRevealDirective, RouterLink],
+  imports: [Contacts, Loader, ScrollRevealDirective, RouterLink, ShareOn],
   templateUrl: './character.html',
   styleUrls: ['./character.scss'],
 })
@@ -21,7 +22,7 @@ export class Character {
   private router = inject(Router);
   private characterDataService = inject(CharacterDataService);
   private readonly loaderService = inject(LoaderService);
-  private readonly envConfig = inject(APP_ENVIRONMENT_CONFIG);
+  readonly envConfig = inject(APP_ENVIRONMENT_CONFIG);
   private readonly contentService = inject(ContentService);
   assetUrl = (path: string) => buildAssetUrl(this.envConfig.assetBasePath, path);
   template = this.contentService.getTemplateContent().characterPage;
@@ -29,6 +30,12 @@ export class Character {
   loading = signal(true);
   error = signal<string | null>(null);
 
+  readonly shareUrl = computed(
+    () =>
+      typeof window !== 'undefined'
+        ? window.location.href
+        : this.envConfig.canonicalUrl
+  );
   characterName = computed(() => this.character()?.name ?? '');
   characterTagline = computed(() => this.character()?.tagline ?? '');
   characterQuote = computed(() => this.character()?.quote ?? '');

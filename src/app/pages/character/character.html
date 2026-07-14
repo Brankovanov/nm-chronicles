@@ -146,6 +146,13 @@
   </section>
 </div>
 }
+<section>
+  <app-share-on
+    [url]="shareUrl()"
+    [text]="`Explore ${characterName()} from the Newport Maeve Chronicles.`"
+    [mediaUrl]="character()?.images?.portrait?.src || ''"
+  ></app-share-on>
+</section>
 <nav class="sheet-crosslinks">
   <a [routerLink]="['/']" data-home-section="characters" (click)="navigateHome($event, 'characters')">{{ template.backToCharacters }}</a>
   <a href="https://newport-maeve.fandom.com/wiki/Newport_Maeve_Chronicles_Wiki" target="_blank" rel="noopener">

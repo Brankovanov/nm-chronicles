@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { LightHouseService } from './light-house.service';
+import { ShareOn } from '../share-on/share-on';
 
 @Component({
   selector: 'app-light-house',
-  imports: [],
+  imports: [ShareOn],
   templateUrl: './light-house.html',
   styleUrls: ['./light-house.scss'],
 })

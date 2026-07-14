@@ -30,10 +30,16 @@
   cursor: default;
 }
 
-.lightbox-close {
+.lightbox-controls {
   position: absolute;
   top: 1.4rem;
   right: 1.4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.lightbox-close {
   width: 44px;
   height: 44px;
   display: flex;

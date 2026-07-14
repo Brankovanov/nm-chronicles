@@ -1,7 +1,14 @@
-<div class="lightbox" [class.open]="isOpen()" [attr.aria-hidden]="!isOpen()" role="dialog" aria-modal="true" (click)="close()">
-  <button class="lightbox-close" type="button" aria-label="Close" (click)="close($event)">&times;</button>
+<div class="lightbox" [class.open]="isOpen()" [attr.aria-hidden]="!isOpen()" role="dialog" aria-modal="true"
+  (click)="close()">
+
+  <div class="lightbox-controls">
+    <app-share-on [url]="src()" [text]="alt() || 'Share this image from the Newport Maeve Chronicles.'"
+      [mediaUrl]="src()" [isLightbox]="true"></app-share-on>
+    <button type="button" class="lightbox-close" aria-label="Close" (click)="close($event)">&times;</button>
+  </div>
+
   @if (isOpen()) {
-    <img [src]="src()" [alt]="alt() || 'Image preview'" (click)="$event.stopPropagation()">
+  <img [src]="src()" [alt]="alt() || 'Image preview'" (click)="$event.stopPropagation()">
   }
   <span class="lightbox-hint">Click outside or &times; to close</span>
 </div>

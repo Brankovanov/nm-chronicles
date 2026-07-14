@@ -15,7 +15,8 @@
 </section>
 
 <div class="city-fulllink">
-  <button (click)="openLightbox(mapImageSrc(), mapImageAlt() || (cityName() + ' map'))" [attr.aria-label]="mapImageAlt()">
+  <button (click)="openLightbox(mapImageSrc(), mapImageAlt() || (cityName() + ' map'))"
+    [attr.aria-label]="mapImageAlt()">
     {{ pageContent.viewMapLabel }}
   </button>
 </div>
@@ -26,7 +27,10 @@
   <div class="district-grid">
     @for (district of districts(); track districts().indexOf(district)) {
     <article class="district-card fade-up-section" appScrollReveal="is-visible" id="{{ district.slug }}">
-      <div class="district-frame"><img (click)="openLightbox(district.image.src, district.image.alt)" [src]="district.image.src" [attr.alt]="district.image.alt" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('is-empty');this.parentNode.insertAdjacentHTML('beforeend','&lt;span class=&quot;frame-empty&quot;&gt;Coming soon&lt;/span&gt;')" style="cursor: zoom-in;"></div>
+      <div class="district-frame"><img (click)="openLightbox(district.image.src, district.image.alt)"
+          [src]="district.image.src" [attr.alt]="district.image.alt" loading="lazy"
+          onerror="this.style.display='none';this.parentNode.classList.add('is-empty');this.parentNode.insertAdjacentHTML('beforeend','&lt;span class=&quot;frame-empty&quot;&gt;Coming soon&lt;/span&gt;')"
+          style="cursor: zoom-in;"></div>
       <div class="district-info">
         <h3 class="district-name">{{ district.name }}</h3>
         <p class="district-desc">{{ district.description }}</p>
@@ -35,11 +39,20 @@
     }
   </div>
 </section>
+<section>
+  <app-share-on
+    [url]="shareUrl()"
+    [text]="`Discover ${cityName()} from the Newport Maeve Chronicles.`"
+    [mediaUrl]="mapImageSrc()"
+  ></app-share-on>
+</section>
 
 <nav class="city-crosslinks">
   <a [routerLink]="['/']" data-home-section="map" (click)="navigateHome($event, 'map')">{{ pageContent.backToHome }}</a>
-  <a [routerLink]="['/']" data-home-section="characters" (click)="navigateHome($event, 'characters')">{{ pageContent.charactersLink }}</a>
-  <a href="https://newport-maeve.fandom.com/wiki/Newport_Maeve_Chronicles_Wiki" target="_blank" rel="noopener">{{ pageContent.fandomWikiLabel }}</a>
+  <a [routerLink]="['/']" data-home-section="characters" (click)="navigateHome($event, 'characters')">{{
+    pageContent.charactersLink }}</a>
+  <a href="https://newport-maeve.fandom.com/wiki/Newport_Maeve_Chronicles_Wiki" target="_blank" rel="noopener">{{
+    pageContent.fandomWikiLabel }}</a>
 </nav>
 
 <app-contacts></app-contacts>
