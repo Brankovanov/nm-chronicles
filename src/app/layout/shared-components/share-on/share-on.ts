@@ -24,7 +24,7 @@ export class ShareOn {
   readonly instagramIcon = this.iconSvg(siInstagram);
   readonly pinterestIcon = this.iconSvg(siPinterest);
 
-  shareOn(platform: 'facebook' | 'twitter' | 'instagram' | 'pinterest'): void {
+  shareOn(platform: 'facebook' | 'x' | 'instagram' | 'pinterest'): void {
     const url = this.url || (typeof window !== 'undefined' ? window.location.href : '');
     this.socialShareService.shareOn(platform, url, this.text, this.mediaUrl);
   }

@@ -20,22 +20,26 @@ export class SocialShareService {
     return `${origin}${normalizedPath}`;
   }
 
+  private canUseWebShare(): boolean {
+    return typeof navigator !== 'undefined' && typeof navigator.share === 'function';
+  }
+
   shareLink(url: string, title: string, text: string): void {
     const absoluteUrl = this.buildAbsoluteUrl(url);
     const shareData = { title, text, url: absoluteUrl };
 
-    if (typeof navigator !== 'undefined' && 'share' in navigator) {
+    if (this.canUseWebShare()) {
       navigator.share(shareData).catch(() => {
-        this.openTwitter(absoluteUrl, text);
+        this.openX(absoluteUrl, text);
       });
       return;
     }
 
-    this.openTwitter(absoluteUrl, text);
+    this.openX(absoluteUrl, text);
   }
 
   shareOn(
-    platform: 'twitter' | 'facebook' | 'instagram' | 'pinterest',
+    platform: 'facebook' | 'x' | 'instagram' | 'pinterest',
     url: string,
     text: string,
     mediaUrl?: string
@@ -43,8 +47,8 @@ export class SocialShareService {
     const absoluteUrl = this.buildAbsoluteUrl(url);
 
     switch (platform) {
-      case 'twitter':
-        this.openTwitter(absoluteUrl, text);
+      case 'x':
+        this.openX(absoluteUrl, text);
         break;
       case 'facebook':
         this.openFacebook(absoluteUrl);
@@ -64,8 +68,8 @@ export class SocialShareService {
     }
   }
 
-  private openTwitter(url: string, text: string): void {
-    const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+  private openX(url: string, text: string): void {
+    const shareUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
     this.openWindow(shareUrl);
   }
 
@@ -79,8 +83,13 @@ export class SocialShareService {
     this.openWindow(shareUrl);
   }
 
+  /**
+   * Instagram has no public web intent for sharing a URL directly (unlike X/Facebook/Pinterest).
+   * We fall back to the native Web Share API where available, and otherwise just
+   * open instagram.com so the user can share manually.
+   */
   private openInstagram(url: string, text: string): void {
-    if (typeof navigator !== 'undefined' && 'share' in navigator) {
+    if (this.canUseWebShare()) {
       navigator.share({ title: 'Share on Instagram', text, url }).catch(() => {
         this.openWindow('https://www.instagram.com/');
       });
