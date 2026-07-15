@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Page not found</title>
+  <meta name="robots" content="noindex">
+  <script>
+    (function () {
+      var basePath = '/nm-chronicles';
+      var currentPath = window.location.pathname;
+      var path = currentPath.indexOf(basePath) === 0 ? currentPath.substring(basePath.length) : currentPath;
+      if (path === '') {
+        path = '/';
+      }
+      var indexPath = basePath + '/index.html';
+
+      fetch(indexPath)
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error('Failed to fetch index');
+          }
+          return response.text();
+        })
+        .then(function (html) {
+          document.open();
+          document.write(html);
+          document.close();
+          window.history.replaceState({}, '', basePath + path + window.location.search + window.location.hash);
+        })
+        .catch(function () {
+          window.location.href = basePath + '/';
+        });
+    })();
+  </script>
+</head>
+<body>
+  <p>Loading application…</p>
+</body>
+</html>
