@@ -30,10 +30,16 @@ export class AnalyticsService {
       window.dataLayer?.push(arguments);
     };
 
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(config.googleAnalyticsId)}`;
-    document.head.appendChild(script);
+    const existingScript = document.querySelector(
+      `script[src="https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(config.googleAnalyticsId)}"]`
+    );
+
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(config.googleAnalyticsId)}`;
+      document.head.appendChild(script);
+    }
 
     window.gtag('js', new Date());
     window.gtag('config', config.googleAnalyticsId, { send_page_view: false });
