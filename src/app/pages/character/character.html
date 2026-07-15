@@ -95,50 +95,56 @@
       <div class="gallery-row">
         <div class="gallery-slot fade-up-section" appScrollReveal="is-visible">
           <div class="gallery-frame">
-            <img (click)="openLightbox(assetUrl(character()?.images?.portrait?.src || ''),
-            character()?.images?.portrait?.alt || 'Portrait')"
-              [src]="assetUrl(character()?.images?.portrait?.src || '')"
+          <button type="button" class="gallery-image-button" aria-label="Open portrait of {{ character()?.name }}"
+            (click)="openLightbox(assetUrl(character()?.images?.portrait?.src || ''), character()?.images?.portrait?.alt || 'Portrait')">
+            <img [src]="assetUrl(character()?.images?.portrait?.src || '')"
               [attr.alt]="character()?.images?.portrait?.alt || 'Portrait'"
               loading="lazy"
               onerror="this.style.display='none';
                 this.parentNode.classList.add('is-empty');
                 this.parentNode.insertAdjacentHTML('beforeend','&lt;span class=&quot;frame-empty&quot;&gt;Coming soon&lt;/span&gt;')"
               style="cursor: zoom-in;">
-          </div>
+          </button>
+        </div>
           <div class="gallery-label">{{ template.portraitLabel }}</div>
         </div>
         <div class="gallery-slot fade-up-section" appScrollReveal="is-visible">
           <div class="gallery-frame">
-            <img (click)="openLightbox(assetUrl(character()?.images?.item?.src || ''), 
-              character()?.images?.item?.alt || 'Item image')"
-              [src]="assetUrl(character()?.images?.item?.src || '')"
+          <button type="button" class="gallery-image-button" aria-label="Open item image"
+            (click)="openLightbox(assetUrl(character()?.images?.item?.src || ''), character()?.images?.item?.alt || 'Item image')">
+            <img [src]="assetUrl(character()?.images?.item?.src || '')"
               [attr.alt]="character()?.images?.item?.alt || 'Item image'"
               loading="lazy"
               onerror="this.style.display='none';
               this.parentNode.classList.add('is-empty');
               this.parentNode.insertAdjacentHTML('beforeend','&lt;span class=&quot;frame-empty&quot;&gt;Coming soon&lt;/span&gt;')"
               style="cursor: zoom-in;">
-          </div>
+          </button>
+        </div>
           <div class="gallery-label">{{ template.insigniaLabel }}</div>
         </div>
       </div>
       <div class="gallery-slot gallery-slot--wide fade-up-section" appScrollReveal="is-visible">
         <div class="gallery-frame">
-          <img (click)="openLightbox(assetUrl(character()?.images?.turnaround?.src || ''), 
-            character()?.images?.turnaround?.alt || 'Turnaround view')" [src]="assetUrl(character()?.images?.turnaround?.src || '')"
-            [attr.alt]="character()?.images?.turnaround?.alt || 'Turnaround view'"
-            loading="lazy"
-            onerror="this.style.display='none';
-            this.parentNode.classList.add('is-empty');
-            this.parentNode.insertAdjacentHTML('beforeend','&lt;span class=&quot;frame-empty&quot;&gt;Coming soon&lt;/span&gt;')"
-            style="cursor: zoom-in;">
+          <button type="button" class="gallery-image-button" aria-label="Open turnaround view"
+            (click)="openLightbox(assetUrl(character()?.images?.turnaround?.src || ''), character()?.images?.turnaround?.alt || 'Turnaround view')">
+            <img [src]="assetUrl(character()?.images?.turnaround?.src || '')"
+              [attr.alt]="character()?.images?.turnaround?.alt || 'Turnaround view'"
+              loading="lazy"
+              onerror="this.style.display='none';
+              this.parentNode.classList.add('is-empty');
+              this.parentNode.insertAdjacentHTML('beforeend','&lt;span class=&quot;frame-empty&quot;&gt;Coming soon&lt;/span&gt;')"
+              style="cursor: zoom-in;">
+          </button>
         </div>
         <div class="gallery-label">{{ template.turnaroundLabel }}</div>
       </div>
     </div>
 
     <div class="sheet-fulllink">
-      <button id="viewSheet" (click)="openLightbox(assetUrl(character()?.images?.sheet?.src || ''), character()?.images?.sheet?.alt || (character()?.name + ' full character sheet'))" [attr.data-full]="assetUrl(character()?.images?.sheet?.src || '')"
+      <button id="viewSheet" type="button"
+        (click)="openLightbox(assetUrl(character()?.images?.sheet?.src || ''), character()?.images?.sheet?.alt || (character()?.name + ' full character sheet'))"
+        [attr.data-full]="assetUrl(character()?.images?.sheet?.src || '')"
         [attr.data-alt]="character()?.images?.sheet?.alt || (character()?.name + ' full character sheet')">
         {{ template.viewSheetLabel }}
       </button>
@@ -157,7 +163,7 @@
 </section>
 <nav class="sheet-crosslinks">
   <a [routerLink]="['/']" data-home-section="characters" (click)="navigateHome($event, 'characters')">{{ template.backToCharacters }}</a>
-  <a href="https://newport-maeve.fandom.com/wiki/Newport_Maeve_Chronicles_Wiki" target="_blank" rel="noopener">
+  <a href="https://newport-maeve.fandom.com/wiki/Newport_Maeve_Chronicles_Wiki" target="_blank" rel="noopener noreferrer" aria-label="Open Newport Maeve wiki in a new tab">
     {{ template.fandomWikiLabel }}
   </a>
   <a [routerLink]="['/']" data-home-section="listen" (click)="navigateHome($event, 'listen')">{{ template.listenPrequel }}</a>

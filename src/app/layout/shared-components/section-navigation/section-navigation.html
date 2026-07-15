@@ -1,11 +1,11 @@
 <div class="section-navigation">
-    <button type="button" class="nav-button prev" title="{{ previousSection()?.label }}"
+    <button type="button" class="nav-button prev" aria-label="{{ previousSection()?.label }}" title="{{ previousSection()?.label }}"
         [disabled]="!canScrollPrevious()" (click)="scrollToPrevious()"></button>
 
     <div class="section-indicator">
         <span title="{{ currentLabel() }}"></span>
     </div>
 
-    <button type="button" class="nav-button next" title="{{ nextSection()?.label }}" [disabled]="!canScrollNext()"
+    <button type="button" class="nav-button next"  aria-label="{{nextSection()?.label }}" title="{{ nextSection()?.label }}" [disabled]="!canScrollNext()"
         (click)="scrollToNext()"></button>
 </div>

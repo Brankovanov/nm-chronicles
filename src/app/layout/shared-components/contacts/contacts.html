@@ -6,7 +6,7 @@
     <p class="section-lead">{{ content.lead }}</p>
     <div class="links-grid">
       @for (link of content.links; track content.links.indexOf(link)) {
-        <a [href]="link.href" [attr.data-site-link]="link.siteLink" target="_blank" rel="noopener" class="link-card">
+        <a [href]="link.href" [attr.data-site-link]="link.siteLink" target="_blank" rel="noopener noreferrer" class="link-card">
           <div class="link-icon">{{ link.icon }}</div>
           <div><div class="link-label">{{ link.label }}</div><div class="link-desc">{{ link.description }}</div></div>
         </a>
