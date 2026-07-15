@@ -14,7 +14,7 @@
     "test": "ng test",
     "serve:ssr:nm-chronicles": "node dist/nm-chronicles/server/server.mjs",
     "build:github-pages": "ng build --configuration githubPages",
-    "postbuild:github-pages": "type NUL > dist/github-pages/browser/.nojekyll",
+    "postbuild:github-pages": "node scripts/prerender-gh-pages.js",
     "deploy:github-pages": "npx gh-pages -d dist/github-pages/browser -b gh-pages -r https://github.com/Brankovanov/nm-chronicles.git --dotfiles",
     "build:cloudflare": "ng build --configuration cloudflare",
     "deploy:cloudflare": "npx wrangler publish --env production"

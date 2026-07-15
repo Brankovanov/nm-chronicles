@@ -5,12 +5,7 @@ import { Footer } from './layout/footer/footer';
 import { LightHouse } from './layout/shared-components/light-house/light-house';
 import { Loader } from './layout/shared-components/loader/loader';
 import { LoaderService } from './services/loader.service';
-
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
+import { AnalyticsService } from './analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +16,7 @@ declare global {
 export class App {
   private readonly router = inject(Router);
   private readonly loaderService = inject(LoaderService);
+  private readonly analyticsService = inject(AnalyticsService);
 
   readonly loading = this.loaderService.active;
   readonly loadingMessage = this.loaderService.message;
@@ -31,6 +27,7 @@ export class App {
       effect(() => {
         document.body.classList.toggle('loader-active', this.loading());
       });
+      void this.analyticsService.init();
     }
 
     this.router.events.subscribe((event) => {
