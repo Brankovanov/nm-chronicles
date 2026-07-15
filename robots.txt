@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://brankovanov.github.io/nm-chronicles/sitemap.xml
