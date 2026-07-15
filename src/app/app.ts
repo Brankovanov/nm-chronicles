@@ -6,6 +6,12 @@ import { LightHouse } from './layout/shared-components/light-house/light-house';
 import { Loader } from './layout/shared-components/loader/loader';
 import { LoaderService } from './services/loader.service';
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Header, Footer, LightHouse, Loader],
@@ -35,6 +41,22 @@ export class App {
       if (event instanceof NavigationEnd || event instanceof NavigationCancel || event instanceof NavigationError) {
         this.loaderService.hide();
       }
+
+      if (event instanceof NavigationEnd) {
+        this.sendPageView(event.urlAfterRedirects);
+      }
+    });
+  }
+
+  private sendPageView(url: string): void {
+    if (typeof window === 'undefined' || typeof window.gtag !== 'function') {
+      return;
+    }
+
+    window.gtag('event', 'page_view', {
+      page_path: url,
+      page_location: window.location.href,
+      page_title: document.title,
     });
   }
 }
