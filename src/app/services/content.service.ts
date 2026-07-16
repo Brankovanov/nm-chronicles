@@ -87,6 +87,7 @@ export interface TemplateContent {
     subtitle: string;
     credit: string;
     copy: string;
+    development: string;
   };
   cityPage: {
     heroEyebrow: string;

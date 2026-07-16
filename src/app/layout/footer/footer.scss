@@ -26,11 +26,21 @@ footer {
   font-size: 0.82rem;
   color: #D4C9B0;
   text-align: right;
+
+  a {
+    text-decoration: none;
+  }
 }
 
-.footer-copy {
+.footer-copy,
+.footer-development {
+  display: block;
   font-size: 0.75rem;
   color: #BDB0A0;
+}
+
+.footer-development {
+  margin-top: 0.25rem;
 }
 
 @media (max-width: 900px) {

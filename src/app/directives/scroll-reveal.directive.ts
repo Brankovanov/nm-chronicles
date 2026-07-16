@@ -45,7 +45,36 @@ export class ScrollRevealDirective implements OnInit, OnDestroy {
       }
     );
 
-    this.observer.observe(this.el.nativeElement);
+    const element = this.el.nativeElement;
+    if (this.isElementVisible(element)) {
+      this.renderer.addClass(element, this.revealClass());
+      if (this.once()) {
+        return;
+      }
+    }
+
+    this.observer.observe(element);
+  }
+
+  private isElementVisible(element: HTMLElement): boolean {
+    const rect = element.getBoundingClientRect();
+    const intersection = {
+      top: Math.max(0, rect.top),
+      left: Math.max(0, rect.left),
+      bottom: Math.min(window.innerHeight, rect.bottom),
+      right: Math.min(window.innerWidth, rect.right),
+    };
+
+    const width = Math.max(0, intersection.right - intersection.left);
+    const height = Math.max(0, intersection.bottom - intersection.top);
+    const visibleArea = width * height;
+    const totalArea = rect.width * rect.height;
+
+    if (totalArea === 0) {
+      return false;
+    }
+
+    return visibleArea / totalArea >= this.threshold();
   }
 
   private handleIntersect(entries: IntersectionObserverEntry[]): void {
