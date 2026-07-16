@@ -15,8 +15,7 @@
 </section>
 
 <div class="city-fulllink">
-  <button (click)="openLightbox(mapImageSrc(), mapImageAlt() || (cityName() + ' map'), pageDescription())">
-    {{ pageContent.viewMapLabel }}
+  <button (click)="openLightbox(assetUrl(mapImageSrc()), mapImageAlt() || (cityName() + ' map'), pageDescription())">
   </button>
 </div>
 
@@ -28,8 +27,8 @@
     <article class="district-card fade-up-section" appScrollReveal="is-visible" id="{{ district.slug }}">
       <div class="district-frame">
         <button type="button" class="district-image-button" aria-label="View {{ district.name }} map"
-          (click)="openLightbox(district.image.src, district.image.alt, district.description)">
-          <img [src]="district.image.src" [attr.alt]="district.image.alt" loading="lazy"
+          (click)="openLightbox(assetUrl(district.image.src), district.image.alt, district.description)">
+          <img [src]="assetUrl(district.image.src)" [attr.alt]="district.image.alt" loading="lazy"
             onerror="this.style.display='none';this.parentNode.classList.add('is-empty');this.parentNode.insertAdjacentHTML('beforeend','&lt;span class=&quot;frame-empty&quot;&gt;Coming soon&lt;/span&gt;')"
             style="cursor: zoom-in;">
         </button>

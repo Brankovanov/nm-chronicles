@@ -9,7 +9,7 @@
     "scrollHint": "Scroll",
     "scrollTarget": "about",
     "heroImage": {
-      "src": "../../../../assets/images/cover.webp",
+      "src": "assets/images/cover.webp",
       "alt": "The Newport Maeve Chronicles cover illustration"
     }
   },
@@ -30,7 +30,7 @@
       { "value": "1", "label": "Thin Point Between Worlds" }
     ],
     "image": {
-      "src": "/nm-chronicles/assets/images/ironclad.webp",
+      "src": "assets/images/ironclad.webp",
       "alt": "The Ironclad Consortium tower in Newport Maeve"
     }
   },

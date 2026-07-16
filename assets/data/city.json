@@ -7,7 +7,7 @@
     "sea": "Moon Sea"
   },
   "mapImage": {
-    "src": "https://newportmaeve.com/assets/images/map.webp",
+    "src": "assets/images/map.webp",
     "alt": "Illustrated map of Newport Maeve, where the Zarina River meets the Moon Sea"
   },
   "districts": [

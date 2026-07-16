@@ -1,6 +1,6 @@
 import { InjectionToken } from '@angular/core';
 
-export type DeploymentEnvironment = 'local' | 'dev' | 'production';
+export type DeploymentEnvironment = 'local' | 'githubPages' | 'production';
 
 export interface AppEnvironmentConfig {
   environment: DeploymentEnvironment;
@@ -68,7 +68,7 @@ export const APP_ENVIRONMENT_CONFIG = new InjectionToken<AppEnvironmentConfig>('
 
     if (isGithubPages) {
       return {
-        environment: 'dev',
+        environment: 'githubPages',
         assetBasePath: '/nm-chronicles/',
         canonicalUrl: `${origin}/nm-chronicles/`,
         isBrowser: true,
@@ -85,8 +85,8 @@ export const APP_ENVIRONMENT_CONFIG = new InjectionToken<AppEnvironmentConfig>('
     }
 
     return {
-      environment: 'dev',
-      assetBasePath: '/nm-chronicles/',
+      environment: 'production',
+      assetBasePath: '/',
       canonicalUrl: `${origin}${pathname}`,
       isBrowser: true,
     };

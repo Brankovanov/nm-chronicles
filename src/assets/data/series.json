@@ -14,11 +14,11 @@
     { "value": "1",  "label": "Thin Point Between Worlds" }
   ],
   "coverImage": {
-    "src": "https://newportmaeve.com/assets/images/cover.webp",
+    "src": "assets/images/cover.webp",
     "alt": "Cover art for The Newport Maeve Chronicles"
   },
   "ironcladImage": {
-    "src": "https://newportmaeve.com/assets/images/ironclad.webp",
+    "src": "assets/images/ironclad.webp",
     "alt": "The Ironclad Consortium tower in Newport Maeve"
   }
 }
