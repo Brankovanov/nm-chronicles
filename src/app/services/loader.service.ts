@@ -40,7 +40,7 @@ export class LoaderService {
           this.delayedHideState.set(false);
         }
         this.hideTimer = null;
-      }, 250);
+      }, 500);
     }
   }
 
