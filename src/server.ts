@@ -30,8 +30,14 @@ const angularApp = new AngularNodeAppEngine();
 app.use(
   express.static(browserDistFolder, {
     maxAge: '1y',
+    immutable: true,
     index: false,
     redirect: false,
+    setHeaders: (res, filePath) => {
+      if (filePath.match(/\.(js|css|png|jpe?g|webp|svg|ttf|otf|woff2?)$/i)) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      }
+    },
   }),
 );
 
@@ -41,9 +47,18 @@ app.use(
 app.use((req, res, next) => {
   angularApp
     .handle(req)
-    .then((response) =>
-      response ? writeResponseToNodeResponse(response, res) : next(),
-    )
+    .then((response) => {
+      if (!response) {
+        return next();
+      }
+
+      response.headers.set(
+        'Cache-Control',
+        'public, max-age=3600, stale-while-revalidate=86400',
+      );
+
+      return writeResponseToNodeResponse(response, res);
+    })
     .catch(next);
 });
 
