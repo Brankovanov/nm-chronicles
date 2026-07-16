@@ -1,0 +1,19 @@
+@if (!hasDecision()) {
+  <section class="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie consent banner">
+    <div class="cookie-consent__panel">
+      <div class="cookie-consent__copy">
+        <p class="cookie-consent__message">
+          We use Google Analytics to improve the site experience. Accept cookies to enable analytics, or decline to continue without tracking.
+        </p>
+      </div>
+      <div class="cookie-consent__actions">
+        <button type="button" class="cookie-consent__button cookie-consent__button--accept" (click)="accept()">
+          Accept
+        </button>
+        <button type="button" class="cookie-consent__button cookie-consent__button--decline" (click)="decline()">
+          Decline
+        </button>
+      </div>
+    </div>
+  </section>
+}

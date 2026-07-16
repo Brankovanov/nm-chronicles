@@ -26,7 +26,7 @@ export class SectionNavigation implements OnDestroy {
   private readonly scrollService = inject(ScrollService);
   private readonly isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
 
-  private scrollPosition = signal(0);
+  private sectionObserver?: IntersectionObserver;
   currentSection = signal(SECTIONS[0].id);
 
   sections = SECTIONS;
@@ -39,15 +39,8 @@ export class SectionNavigation implements OnDestroy {
 
   constructor() {
     if (this.isBrowser) {
-      window.addEventListener('scroll', this.onScroll, { passive: true });
-      window.addEventListener('resize', this.onScroll, { passive: true });
-      this.onScroll();
+      requestAnimationFrame(() => this.createSectionObserver());
     }
-
-    effect(() => {
-      this.scrollPosition();
-      this.updateCurrentSection();
-    });
   }
 
   scrollToPrevious(): void {
@@ -69,36 +62,37 @@ export class SectionNavigation implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.isBrowser) {
-      window.removeEventListener('scroll', this.onScroll);
-      window.removeEventListener('resize', this.onScroll);
-    }
+    this.sectionObserver?.disconnect();
   }
 
-  private onScroll = (): void => {
-    this.scrollPosition.set(window.scrollY);
-  };
-
-  private updateCurrentSection(): void {
+  private createSectionObserver(): void {
     if (!this.isBrowser) {
       return;
     }
 
-    const candidate = this.sections.reduce((active, section) => {
+    this.sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+        if (visibleSections.length > 0) {
+          this.currentSection.set(visibleSections[0].target.id);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '-40% 0px -50% 0px',
+        threshold: 0.1,
+      }
+    );
+
+    for (const section of this.sections) {
       const element = document.getElementById(section.id);
-      if (!element) {
-        return active;
+      if (element) {
+        this.sectionObserver.observe(element);
       }
-
-      const top = element.getBoundingClientRect().top;
-      if (top <= 120) {
-        return section.id;
-      }
-
-      return active;
-    }, this.sections[0].id);
-
-    this.currentSection.set(candidate);
+    }
   }
 
   private scrollTo(id: string): void {

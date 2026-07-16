@@ -4,22 +4,26 @@ import { Header } from './layout/header/header';
 import { Footer } from './layout/footer/footer';
 import { LightHouse } from './layout/shared-components/light-house/light-house';
 import { Loader } from './layout/shared-components/loader/loader';
+import { CookieConsent } from './layout/shared-components/cookie-consent/cookie-consent';
 import { LoaderService } from './services/loader.service';
+import { CookieConsentService } from './services/cookie-consent.service';
 import { AnalyticsService } from './analytics.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer, LightHouse, Loader],
+  imports: [RouterOutlet, Header, Footer, LightHouse, Loader, CookieConsent],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })
 export class App {
   private readonly router = inject(Router);
   private readonly loaderService = inject(LoaderService);
+  private readonly consentService = inject(CookieConsentService);
   private readonly analyticsService = inject(AnalyticsService);
 
   readonly loading = this.loaderService.active;
   readonly loadingMessage = this.loaderService.message;
+  readonly analyticsAllowed = this.consentService.analyticsAllowed;
   protected readonly title = signal('nm-chronicles');
 
   constructor() {
@@ -28,16 +32,22 @@ export class App {
         document.body.classList.toggle('loader-active', this.loading());
       });
 
-      const globalWindow = window as Window & {
-        requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => void;
-      };
+      effect(() => {
+        if (!this.analyticsAllowed()) {
+          return;
+        }
 
-      if (typeof globalWindow.requestIdleCallback === 'function') {
-        globalWindow.requestIdleCallback(() => void this.analyticsService.init(), { timeout: 3000 });
-      } else {
-        globalWindow.addEventListener('load', () => void this.analyticsService.init(), { once: true, passive: true });
-        setTimeout(() => void this.analyticsService.init(), 3000);
-      }
+        const globalWindow = window as Window & {
+          requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => void;
+        };
+
+        if (typeof globalWindow.requestIdleCallback === 'function') {
+          globalWindow.requestIdleCallback(() => void this.analyticsService.init(), { timeout: 3000 });
+        } else {
+          globalWindow.addEventListener('load', () => void this.analyticsService.init(), { once: true, passive: true });
+          setTimeout(() => void this.analyticsService.init(), 3000);
+        }
+      });
     }
 
     this.router.events.subscribe((event) => {
