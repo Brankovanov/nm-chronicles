@@ -29,7 +29,6 @@
     color: var(--text-dim);
     font-family: 'Cinzel', serif;
     font-size: 11px;
-    letter-spacing: 2px;
     text-transform: uppercase;
     cursor: pointer;
     transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
@@ -37,22 +36,21 @@
     justify-content: center;
     align-items: center;
  
-    &::after {
-        display: inline-block;
+    &::after { 
         font-size: 2rem;
         font-weight: bold;
-        content: '\27A2';
+        
     }
 
     &.next {
         &::after {
-            rotate: 90deg;
+            content: '\2B9B';
         }
     }
 
     &.prev {
         &::after {
-            rotate: -90deg;
+            content: '\2B99';
         }
     }
 

@@ -27,6 +27,7 @@ export class SectionNavigation implements OnDestroy {
   private readonly isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
 
   private sectionObserver?: IntersectionObserver;
+  private observedSections = new Set<string>();
   currentSection = signal(SECTIONS[0].id);
 
   sections = SECTIONS;
@@ -39,7 +40,12 @@ export class SectionNavigation implements OnDestroy {
 
   constructor() {
     if (this.isBrowser) {
-      requestAnimationFrame(() => this.createSectionObserver());
+      requestAnimationFrame(() => {
+        this.createSectionObserver();
+        this.checkForPendingSections();
+        window.addEventListener('scroll', this.onScroll, { passive: true });
+        window.addEventListener('resize', this.onScroll, { passive: true });
+      });
     }
   }
 
@@ -49,8 +55,9 @@ export class SectionNavigation implements OnDestroy {
       return;
     }
 
-    this.scrollTo(this.sections[index - 1].id);
-    this.currentSection.set(this.sections[index - 1].id);
+    const targetId = this.sections[index - 1].id;
+    this.scrollTo(targetId);
+    this.currentSection.set(targetId);
   }
 
   scrollToNext(): void {
@@ -58,12 +65,19 @@ export class SectionNavigation implements OnDestroy {
     if (index >= this.sections.length - 1) {
       return;
     }
-    this.scrollTo(this.sections[index + 1].id);
-    this.currentSection.set(this.sections[index + 1].id);
+
+    const targetId = this.sections[index + 1].id;
+    this.scrollTo(targetId);
+    this.currentSection.set(targetId);
   }
 
   ngOnDestroy(): void {
     this.sectionObserver?.disconnect();
+
+    if (this.isBrowser) {
+      window.removeEventListener('scroll', this.onScroll);
+      window.removeEventListener('resize', this.onScroll);
+    }
   }
 
   private createSectionObserver(): void {
@@ -92,8 +106,64 @@ export class SectionNavigation implements OnDestroy {
       const element = document.getElementById(section.id);
       if (element) {
         this.sectionObserver.observe(element);
+        this.observedSections.add(section.id);
       }
     }
+  }
+
+  private checkForPendingSections(): void {
+    if (!this.isBrowser) {
+      return;
+    }
+
+    let foundSection = false;
+    for (const section of this.sections) {
+      if (!this.sectionObserver || this.observedSections.has(section.id)) {
+        continue;
+      }
+
+      const element = document.getElementById(section.id);
+      if (element) {
+        this.sectionObserver.observe(element);
+        this.observedSections.add(section.id);
+        foundSection = true;
+      }
+    }
+
+    if (foundSection) {
+      this.updateCurrentSectionFromViewport();
+    }
+
+    if (this.sections.some((section) => !this.observedSections.has(section.id))) {
+      requestAnimationFrame(() => this.checkForPendingSections());
+    }
+  }
+
+  private onScroll = (): void => {
+    this.updateCurrentSectionFromViewport();
+  };
+
+  private updateCurrentSectionFromViewport(): void {
+    if (!this.isBrowser) {
+      return;
+    }
+
+    const viewportMiddle = window.innerHeight * 0.35;
+    let activeSection = this.sections[0].id;
+
+    for (const section of this.sections) {
+      const element = document.getElementById(section.id);
+      if (!element) {
+        continue;
+      }
+
+      const rect = element.getBoundingClientRect();
+      if (rect.top <= viewportMiddle && rect.bottom > 0) {
+        activeSection = section.id;
+      }
+    }
+
+    this.currentSection.set(activeSection);
   }
 
   private scrollTo(id: string): void {

@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { closeLightHouseGuard } from './guards/close-lighthouse.guard';
 
 export const routes: Routes = [
   {
@@ -12,11 +13,13 @@ export const routes: Routes = [
       import('./pages/character/character').then(
         m => m.Character
       ),
+    canDeactivate: [closeLightHouseGuard],
   },
   {
     path: 'city',
     loadComponent: () =>
       import('./pages/city/city').then(m => m.City),
+    canDeactivate: [closeLightHouseGuard],
   },
   {
     path: '**',

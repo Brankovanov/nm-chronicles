@@ -1,6 +1,6 @@
 import { Component, effect, inject, signal, Type } from '@angular/core';
 import { NgComponentOutlet } from '@angular/common';
-import { Router } from '@angular/router';
+import { Navigation, Router } from '@angular/router';
 
 import { Contacts } from '../../layout/shared-components/contacts/contacts';
 import { Hero } from '../../layout/shared-components/hero/hero';
@@ -42,16 +42,59 @@ export class Home {
 
     if (this.isBrowser) {
       const navigationState = this.router.getCurrentNavigation()?.extras.state as { homeSection?: string } | null;
-      const homeSection = navigationState?.homeSection ?? (history.state as { homeSection?: string } | null)?.homeSection;
-      if (homeSection) {
-        setTimeout(() => {
-          this.scrollService.scrollTo(homeSection);
-          window.history.replaceState({}, '');
-        }, 0);
+      const stateFromHistory = (history.state as { homeSection?: string } | null)?.homeSection;
+      const homeSection = navigationState?.homeSection ?? stateFromHistory;
+      const originSection = this.inferHomeSectionFromNavigation(this.router.getCurrentNavigation());
+      const sectionToScroll = homeSection ?? originSection;
+
+      if (sectionToScroll) {
+        this.scrollToHomeSectionWhenReady(sectionToScroll);
       }
 
       this.deferLoadHomeSections();
     }
+  }
+
+  private inferHomeSectionFromNavigation(navigation: Navigation | null): string | null {
+    if (!navigation?.previousNavigation) {
+      return null;
+    }
+
+    const previousUrl = navigation.previousNavigation.finalUrl?.toString() ?? navigation.previousNavigation.extractedUrl?.toString();
+    if (!previousUrl) {
+      return null;
+    }
+
+    if (previousUrl.includes('/city')) {
+      return 'map';
+    }
+
+    if (previousUrl.includes('/character')) {
+      return 'characters';
+    }
+
+    return null;
+  }
+
+  private scrollToHomeSectionWhenReady(section: string): void {
+    const maxRetries = 20;
+    let retries = 0;
+
+    const attemptScroll = (): void => {
+      retries += 1;
+      const element = document.getElementById(section);
+      if (element) {
+        this.scrollService.scrollTo(section);
+        window.history.replaceState({}, '');
+        return;
+      }
+
+      if (retries < maxRetries) {
+        requestAnimationFrame(attemptScroll);
+      }
+    };
+
+    requestAnimationFrame(attemptScroll);
   }
 
   private deferLoadHomeSections(): void {

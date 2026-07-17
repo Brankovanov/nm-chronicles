@@ -9,6 +9,8 @@ import {
   PLATFORM_ID,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { Router, NavigationEnd } from '@angular/router';
+import { Subscription, filter } from 'rxjs';
 
 @Directive({
   selector: '[appScrollReveal]',
@@ -18,6 +20,7 @@ export class ScrollRevealDirective implements OnInit, OnDestroy {
   private readonly el = inject(ElementRef<HTMLElement>);
   private readonly renderer = inject(Renderer2);
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly router = inject(Router);
 
   // Class to add when element is revealed
   readonly revealClass = input('is-visible', { alias: 'appScrollReveal' });
@@ -29,12 +32,15 @@ export class ScrollRevealDirective implements OnInit, OnDestroy {
   readonly once = input(true);
 
   private observer?: IntersectionObserver;
+  private navigationSubscription?: Subscription;
 
   ngOnInit(): void {
     // Guard for SSR - IntersectionObserver doesn't exist on the server
     if (!isPlatformBrowser(this.platformId)) {
       return;
     }
+
+    const element = this.el.nativeElement;
 
     this.observer = new IntersectionObserver(
       (entries) => this.handleIntersect(entries),
@@ -45,15 +51,14 @@ export class ScrollRevealDirective implements OnInit, OnDestroy {
       }
     );
 
-    const element = this.el.nativeElement;
-    if (this.isElementVisible(element)) {
-      this.renderer.addClass(element, this.revealClass());
-      if (this.once()) {
-        return;
-      }
-    }
-
     this.observer.observe(element);
+    requestAnimationFrame(() => this.checkVisibility(element));
+
+    this.navigationSubscription = this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe(() => {
+        requestAnimationFrame(() => this.checkVisibility(element));
+      });
   }
 
   private isElementVisible(element: HTMLElement): boolean {
@@ -91,7 +96,19 @@ export class ScrollRevealDirective implements OnInit, OnDestroy {
     }
   }
 
+  private checkVisibility(element: HTMLElement): void {
+    if (this.isElementVisible(element)) {
+      this.renderer.addClass(element, this.revealClass());
+      if (this.once()) {
+        this.observer?.unobserve(element);
+      }
+    } else if (!this.once()) {
+      this.renderer.removeClass(element, this.revealClass());
+    }
+  }
+
   ngOnDestroy(): void {
     this.observer?.disconnect();
+    this.navigationSubscription?.unsubscribe();
   }
 }
