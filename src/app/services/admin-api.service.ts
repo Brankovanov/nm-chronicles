@@ -69,6 +69,7 @@ export class AdminApiService {
     const response = await fetch('/api/admin/images', {
       headers: this.authHeaders,
     });
+    console.log('getImages response:', response);
     if (!response.ok) {
       throw new Error('Failed to load image list.');
     }

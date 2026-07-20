@@ -1,6 +1,6 @@
-import { Component, computed, effect, inject, signal, type Signal, type WritableSignal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, computed, effect, inject, signal, type Signal } from '@angular/core';
 import { AdminApiService } from '../../services/admin-api.service';
+import { APP_ENVIRONMENT_CONFIG, buildAssetUrl } from '../../config';
 
 @Component({
   standalone: true,
@@ -10,6 +10,7 @@ import { AdminApiService } from '../../services/admin-api.service';
 })
 export class Admin {
   private readonly adminApi = inject(AdminApiService);
+  private readonly envConfig = inject(APP_ENVIRONMENT_CONFIG);
 
   readonly dataFiles = signal<string[]>([]);
   readonly selectedFile = signal<string>('');
@@ -129,6 +130,10 @@ export class Admin {
     } finally {
       this.loading.set(false);
     }
+  }
+
+  getImageUrl(image: string): string {
+    return buildAssetUrl(this.envConfig.assetBasePath, `assets/images/${image}`);
   }
 
   onFileContentInput(event: Event): void {

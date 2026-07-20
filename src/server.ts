@@ -5,12 +5,29 @@ import {
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
 import express from 'express';
+import { existsSync } from 'node:fs';
 import { mkdir, readFile, readdir, stat, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 const dataFolder = join(import.meta.dirname, '../assets/data');
-const imageFolder = join(import.meta.dirname, '../assets/images');
+const imageFolder = (() => {
+  const projectRoot = process.cwd();
+  const candidates = [
+    join(projectRoot, 'src/assets/images'),
+    join(projectRoot, 'browser/assets/images'),
+    join(projectRoot, 'dist/nm-chronicles/browser/assets/images'),
+  ];
+
+  const resolved = candidates.find((folder) => existsSync(folder));
+  if (resolved) {
+    return resolved;
+  }
+
+  throw new Error(
+    `Unable to resolve image folder. Tried: ${candidates.join(', ')}`,
+  );
+})();
 const allowedDataFiles = new Set([
   'audiobook.json',
   'author.json',

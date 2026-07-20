@@ -2,6 +2,14 @@
   <header class="admin-header">
     <h1>Admin panel</h1>
   </header>
+   
+  @if (status()) {
+  <div class="admin-status success">{{status()}}</div>
+  }
+
+  @if (error()) {
+  <div class="admin-status error">{{error()}}</div>
+  }
 
   <div class="admin-grid">
     <section class="admin-section admin-data">
@@ -10,11 +18,11 @@
 
       <ul class="data-file-list">
         @for (fileName of dataFiles(); track fileName) {
-            <li>
-              <button type="button" class="data-file-button" (click)="selectFile(fileName)">
-                {{fileName}}
-              </button>
-            </li>
+        <li>
+          <button type="button" class="data-file-button" (click)="selectFile(fileName)">
+            {{fileName}}
+          </button>
+        </li>
         }
       </ul>
 
@@ -23,12 +31,8 @@
         <span>Editing: {{selectedFile()}}</span>
         <button type="button" class="save-button" (click)="saveFile()" [disabled]="loading()">Save file</button>
       </div>
-      <textarea
-        class="json-editor"
-        rows="24"
-        [value]="fileContent()"
-        (input)="onFileContentInput($event)"
-        >{{fileContent()}}</textarea>
+      <textarea class="json-editor" rows="24" [value]="fileContent()"
+        (input)="onFileContentInput($event)">{{fileContent()}}</textarea>
       }
     </section>
 
@@ -58,17 +62,14 @@
       <h3>Existing images</h3>
       <div class="image-list">
         @for (image of images(); track image) {
-        <div class="image-item">{{image}}</div>
+        <figure class="image-item">
+          <img [src]="getImageUrl(image)" [alt]="image" />
+          <figcaption>{{image}}</figcaption>
+        </figure>
         }
       </div>
     </section>
   </div>
 
-  @if (status()) {
-  <div class="admin-status success">{{status()}}</div>
-  }
 
-  @if (error()) {
-  <div class="admin-status error">{{error()}}</div>
-  }
 </section>
