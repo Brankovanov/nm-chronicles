@@ -2,6 +2,7 @@
   --gold: #C9A84C;
   --gold-light: #E8C97A;
   --gold-dim: #7A6030;
+  --text-light: #F3E9C8;
   --crimson: #8B1A1A;
   --crimson-bright: #C0392B;
   --bg-deep: #080808;
@@ -160,7 +161,7 @@ section {
 }
 
 .section-lead {
-  color: var(--text-dim);
+  color: var(--text);
   font-style: italic;
 }
 

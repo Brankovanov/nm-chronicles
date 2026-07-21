@@ -99,7 +99,7 @@ export class Home {
 
   private deferLoadHomeSections(): void {
     const loadSections = async () => {
-      const [about, prequal, characters, quotations, city, author] = await Promise.all([
+      const results = await Promise.allSettled([
         import('../../layout/shared-components/about/about'),
         import('../../layout/shared-components/prequal/prequal'),
         import('../../layout/shared-components/characters/characters'),
@@ -108,12 +108,41 @@ export class Home {
         import('../../layout/shared-components/author/author'),
       ]);
 
-      this.aboutComponent.set(about.About);
-      this.prequalComponent.set(prequal.Prequal);
-      this.charactersComponent.set(characters.Characters);
-      this.quotationsComponent.set(quotations.Quotations);
-      this.cityComponent.set(city.City);
-      this.authorComponent.set(author.Author);
+      if (results[0].status === 'fulfilled') {
+        this.aboutComponent.set(results[0].value.About);
+      } else {
+        console.error('Failed to load about section', results[0].reason);
+      }
+
+      if (results[1].status === 'fulfilled') {
+        this.prequalComponent.set(results[1].value.Prequal);
+      } else {
+        console.error('Failed to load prequal section', results[1].reason);
+      }
+
+      if (results[2].status === 'fulfilled') {
+        this.charactersComponent.set(results[2].value.Characters);
+      } else {
+        console.error('Failed to load characters section', results[2].reason);
+      }
+
+      if (results[3].status === 'fulfilled') {
+        this.quotationsComponent.set(results[3].value.Quotations);
+      } else {
+        console.error('Failed to load quotations section', results[3].reason);
+      }
+
+      if (results[4].status === 'fulfilled') {
+        this.cityComponent.set(results[4].value.City);
+      } else {
+        console.error('Failed to load city section', results[4].reason);
+      }
+
+      if (results[5].status === 'fulfilled') {
+        this.authorComponent.set(results[5].value.Author);
+      } else {
+        console.error('Failed to load author section', results[5].reason);
+      }
     };
 
     const globalWindow = window as unknown as Window & {

@@ -62,7 +62,7 @@
   font-family: 'Cinzel', serif;
   font-size: 11px;
   letter-spacing: 3px;
-  color: var(--gold-dim);
+  color: var(--gold);
   text-transform: uppercase;
   margin-bottom: 2px;
   transition: color 0.3s;
@@ -70,13 +70,13 @@
 
 @media (hover: hover) {
   .link-card:hover .link-label {
-    color: var(--gold);
+    color: var(--gold-light);
   }
 }
 
 .link-desc {
   font-size: 0.9rem;
-  color: var(--text-dim);
+  color: var(--text);
 }
 
 @media (max-width: 900px) {
