@@ -45,4 +45,4 @@ const handler = async (request: Request): Promise<Response> => {
   });
 };
 
-export default createRequestHandler(handler);
+export const fetch = createRequestHandler(handler);
