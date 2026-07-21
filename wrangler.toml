@@ -1,4 +1,4 @@
-name = "nm-chronicles"
+name = "nm-chronicles-production"
 main = "dist/nm-chronicles-cloudflare/server/server.mjs"
 compatibility_date = "2026-07-02"
 account_id = "4eda8255125394a17293a14fc5cdeaac"
@@ -7,9 +7,6 @@ account_id = "4eda8255125394a17293a14fc5cdeaac"
 
 [build]
 command = "npm run build:cloudflare"
-
-[upload]
-dir = "dist/nm-chronicles-cloudflare/browser"
 
 [observability]
 enabled = false
@@ -20,8 +17,3 @@ enabled = true
 head_sampling_rate = 1
 persist = true
 invocation_logs = true
-
-[observability.traces]
-enabled = false
-persist = true
-head_sampling_rate = 1
