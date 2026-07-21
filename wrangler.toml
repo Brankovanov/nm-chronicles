@@ -1,5 +1,5 @@
 name = "nm-chronicles"
-main = "src/cloudflare/worker.ts"
+main = "dist/nm-chronicles-cloudflare/server/server.mjs"
 compatibility_date = "2026-07-02"
 account_id = "4eda8255125394a17293a14fc5cdeaac"
 
@@ -8,5 +8,9 @@ account_id = "4eda8255125394a17293a14fc5cdeaac"
 [build]
 command = "npm run build:cloudflare"
 
-[build.upload]
+[upload]
 dir = "dist/nm-chronicles-cloudflare/browser"
+
+[observability.logs]
+enabled = true
+invocation_logs = true
